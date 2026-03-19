@@ -189,224 +189,206 @@
 }
 
 
-/* ══════════════════════════════════════════════════
-   SIMULATION NAVIGATEUR — CSS
-   ══════════════════════════════════════════════════ */
-.sim-root{width:100%;font-family:ui-monospace,'Cascadia Code','Fira Code','JetBrains Mono','Consolas','Menlo','Monaco',monospace;font-size:11px;color:#e2e8f0;position:relative;user-select:none;--sim-bg0:#06060d;--sim-bg1:#0d0d1a;--sim-bg2:#12121f;--sim-bg3:#1a1a2e;--sim-bd:#1e1e35;--sim-bd2:#2a2a48;--sim-ac:#6d28d9;--sim-ac2:#7c3aed;--sim-ac3:#8b5cf6;--sim-tor:#10b981;--sim-dan:#ef4444;--sim-warn:#f59e0b;--sim-t:#e2e8f0;--sim-t2:#94a3b8;--sim-t3:#64748b}
-.sim-root::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;z-index:10;background:linear-gradient(90deg,transparent,rgba(124,58,237,.5),rgba(6,182,212,.3),transparent);pointer-events:none}
-/* Titlebar */
-.sim-titlebar{background:var(--sim-bg0);height:38px;display:flex;align-items:center;border-bottom:1px solid var(--sim-bd);position:relative;flex-shrink:0}
-.sim-tl-left{display:flex;align-items:center;gap:8px;padding:0 10px 0 12px;border-right:1px solid var(--sim-bd);height:100%}
-.sim-trafficlights{display:flex;gap:6px;align-items:center}
-.sim-tl{width:12px;height:12px;border-radius:50%;cursor:pointer;transition:filter .15s}
-.sim-tl:hover{filter:brightness(1.2)}
-.sim-tl-r{background:#ff5f57}.sim-tl-y{background:#febc2e}.sim-tl-g{background:#28c840}
-.sim-sb-btn{width:22px;height:22px;background:transparent;border:1px solid transparent;border-radius:4px;color:var(--sim-t3);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:3px;transition:all .18s}
-.sim-sb-btn:hover{background:var(--sim-bg2);border-color:var(--sim-bd2);color:var(--sim-t2)}
-.sim-sb-btn.active{border-color:var(--sim-ac);color:var(--sim-ac3);background:rgba(109,40,217,.08)}
-.sim-sb-bar{width:11px;height:1.5px;background:currentColor;border-radius:1px}
-.sim-tl-center{flex:1;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:3px}
-.sim-logo-s{background:linear-gradient(90deg,#f1f5f9,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sim-logo-e{color:rgba(255,255,255,.5);-webkit-text-fill-color:rgba(255,255,255,.5)}
-.sim-logo-or{background:linear-gradient(90deg,#22d3ee,#67e8f9);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sim-tl-right{display:flex;align-items:center;gap:6px;padding:0 12px;border-left:1px solid var(--sim-bd);height:100%}
-.sim-icon-btn{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;color:rgba(255,255,255,.35);background:none;border:none}
-.sim-icon-btn svg{width:13px;height:13px}
-.sim-icon-btn:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6)}
-.sim-icon-btn.acc{color:#f59e0b}.sim-icon-btn.acc:hover{color:#fbbf24}
-.sim-tor-badge{display:flex;align-items:center;gap:5px;font-size:10px;letter-spacing:1.5px;font-weight:700;padding:4px 10px;border-radius:6px;margin-left:2px;cursor:pointer;transition:all .2s}
-.sim-tor-badge.on{color:#22c55e;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2)}
-.sim-tor-badge.off{color:var(--sim-dan);background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2)}
-.sim-tor-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:#22c55e;box-shadow:0 0 8px #22c55e;animation:simLp 2.4s ease-in-out infinite}
-.sim-tor-badge.off .sim-tor-dot{background:var(--sim-dan);box-shadow:0 0 8px var(--sim-dan)}
-@keyframes simLp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
-/* Tabbar */
-.sim-tabbar{background:#080718;padding:6px 12px 0;display:flex;align-items:flex-end;gap:4px;border-bottom:1px solid rgba(255,255,255,.04)}
-.sim-tab{display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:8px 8px 0 0;font-size:11px;letter-spacing:.3px;color:rgba(255,255,255,.4);background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-bottom:none;cursor:pointer;max-width:180px;white-space:nowrap;transition:all .18s;animation:simTabIn .18s ease}
-@keyframes simTabIn{from{opacity:0;transform:scale(.92) translateY(3px)}to{opacity:1;transform:none}}
-.sim-tab.active{background:rgba(124,58,237,.14);border-color:rgba(124,58,237,.2);color:rgba(255,255,255,.85)}
-.sim-tab:not(.active):hover{background:rgba(255,255,255,.05);color:rgba(255,255,255,.55)}
-.sim-tab-fav{width:14px;height:14px;border-radius:3px;flex-shrink:0;background:linear-gradient(135deg,#7c3aed,#06b6d4)}
-.sim-tab-close{width:12px;height:12px;margin-left:4px;opacity:.4;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:opacity .15s;cursor:pointer}
-.sim-tab:hover .sim-tab-close{opacity:.7}
-.sim-tab-close svg{width:10px;height:10px}
-.sim-new-tab{width:26px;height:26px;border-radius:6px;background:none;border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.3);cursor:pointer;display:flex;align-items:center;justify-content:center;margin-bottom:2px;transition:all .15s}
-.sim-new-tab:hover{background:rgba(255,255,255,.05);color:rgba(255,255,255,.5)}
-.sim-new-tab svg{width:12px;height:12px}
-/* Navbar */
-.sim-navbar{background:var(--sim-bg1);padding:6px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--sim-bd);position:relative}
-.sim-nav-btn{width:26px;height:26px;border-radius:6px;background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.sim-nav-btn svg{width:13px;height:13px}
-.sim-nav-btn:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
-.sim-nav-btn.dim{opacity:.25;cursor:default}
-.sim-nav-btn.dim:hover{background:none;opacity:.25}
-.sim-url{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:5px 12px;font-size:12px;color:rgba(255,255,255,.25);transition:border-color .2s;cursor:text;display:flex;align-items:center;gap:8px}
-.sim-url:hover{border-color:rgba(255,255,255,.15)}
-.sim-url-proto{color:rgba(139,92,246,.6);font-size:10px}
-.sim-sec-pill{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer;font-size:10px;letter-spacing:1px;color:var(--sim-t2);transition:all .15s;white-space:nowrap}
-.sim-sec-pill:hover{border-color:rgba(124,58,237,.3);background:rgba(124,58,237,.07)}
-.sim-sec-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:var(--sim-tor)}
-.sim-shield-count{font-size:10px;padding:3px 8px;border-radius:5px;letter-spacing:.5px;background:rgba(109,40,217,.08);border:1px solid rgba(109,40,217,.2);color:var(--sim-ac3);white-space:nowrap}
-.sim-load-bar{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sim-ac2),var(--sim-ac3));transform:scaleX(0);transform-origin:left;opacity:0}
-@keyframes simLoadProgress{0%{transform:scaleX(0);opacity:1}15%{transform:scaleX(.2)}50%{transform:scaleX(.6)}85%{transform:scaleX(.85)}100%{transform:scaleX(1);opacity:0}}
-.sim-load-bar.loading{animation:simLoadProgress 2.2s ease-out forwards}
-/* Body */
-.sim-body{display:flex;position:relative;height:500px;overflow:hidden}
+/* ══ Shadow Explorer — Simulation interactive ══
+   Préfixe rbs- : zéro conflit avec le site. */
+
+/* Wordmark newtab */
+.rbs-wm-shadow{font-family:var(--mono);font-weight:800;font-size:44px;letter-spacing:8px;text-transform:uppercase;background:linear-gradient(135deg,#e2e8f0 0%,#a78bfa 40%,#8b5cf6 60%,#06b6d4 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sh 5s linear infinite,ntFadeUp .5s cubic-bezier(.4,0,.2,1) both;filter:drop-shadow(0 0 24px rgba(109,40,217,.18))}
+.rbs-wm-explorer{font-family:var(--mono);font-size:11px;letter-spacing:12px;text-transform:uppercase;color:#06b6d4;opacity:.6;padding-left:3px}
+
+/* Layout body : contenu + sidebar positionnés */
+.rbs-body{display:flex;position:relative;overflow:hidden;min-height:440px}
+.rbs-main{flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column}
+
+/* Trigger sidebar (bande 8px bord gauche) */
+.rbs-trigger{position:absolute;left:0;top:0;bottom:0;width:8px;z-index:30;cursor:e-resize}
+.rbs-trigger::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:2px;height:48px;border-radius:1px;background:linear-gradient(180deg,#7c3aed,#8b5cf6);opacity:.28;transition:opacity .2s,height .2s,box-shadow .2s}
+.rbs-trigger:hover::after{opacity:.85;height:72px;box-shadow:0 0 8px #7c3aed}
+
 /* Sidebar */
-.sim-sidebar{width:0;min-width:0;overflow:hidden;background:rgba(9,8,28,.98);border-right:1px solid var(--sim-bd);display:flex;flex-direction:column;transition:width .28s cubic-bezier(.4,0,.2,1),min-width .28s cubic-bezier(.4,0,.2,1);flex-shrink:0;position:relative;z-index:20}
-.sim-sidebar.open{width:230px;min-width:230px}
-.sim-sb-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 8px;border-bottom:1px solid var(--sim-bd);flex-shrink:0}
-.sim-sb-title{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(90deg,#a78bfa,#22d3ee);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sim-sb-pin{font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:4px;border:1px solid var(--sim-bd2);background:transparent;color:var(--sim-t3);cursor:pointer;transition:all .15s;font-family:inherit;text-transform:uppercase;white-space:nowrap}
-.sim-sb-pin:hover{border-color:var(--sim-ac);color:var(--sim-ac3)}
-.sim-sb-pin.pinned{border-color:var(--sim-ac);color:var(--sim-ac3);background:rgba(109,40,217,.1)}
-.sim-sb-tabs{display:flex;border-bottom:1px solid var(--sim-bd);flex-shrink:0}
-.sim-sb-tab{flex:1;padding:8px 0;text-align:center;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sim-t3);cursor:pointer;transition:all .15s;border-bottom:2px solid transparent}
-.sim-sb-tab:hover{color:var(--sim-t2)}
-.sim-sb-tab.active{color:var(--sim-ac3);border-bottom-color:var(--sim-ac3)}
-.sim-sb-panels{flex:1;overflow-y:auto;overflow-x:hidden}
-.sim-sb-panels::-webkit-scrollbar{width:3px}
-.sim-sb-panels::-webkit-scrollbar-thumb{background:rgba(109,40,217,.3);border-radius:2px}
-.sim-sb-panel{display:none}.sim-sb-panel.active{display:block}
-.sim-sb-section{border-bottom:1px solid var(--sim-bd);padding:10px 0}
-.sim-sb-sec-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sim-t3);padding:0 14px 8px;display:flex;align-items:center;gap:6px}
-.sim-sb-sec-title::after{content:'';flex:1;height:1px;background:var(--sim-bd)}
-.sim-mon-widget{padding:6px 12px 10px}
-.sim-mon-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
-.sim-mon-label{font-size:9px;color:var(--sim-t3)}
-.sim-mon-val{font-size:12px;font-weight:700;color:var(--sim-t)}
-.sim-mon-unit{font-size:9px;color:var(--sim-t3)}
-.sim-mon-track{height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-bottom:6px}
-.sim-mon-fill{height:100%;border-radius:2px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
-.sim-mon-fill.cpu{background:linear-gradient(90deg,var(--sim-ac2),var(--sim-ac3))}
-.sim-mon-fill.ram{background:linear-gradient(90deg,#0891b2,#06b6d4)}
-.sim-mon-fill.net{background:linear-gradient(90deg,#059669,#10b981)}
-.sim-spark{width:100%;height:24px;margin-bottom:4px}
-.sim-spark polygon{fill-opacity:.15}
-.sim-spark polyline{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.sim-spark.cpu polygon,.sim-spark.cpu polyline{stroke:var(--sim-ac3);fill:var(--sim-ac3)}
-.sim-spark.ram polygon,.sim-spark.ram polyline{stroke:#06b6d4;fill:#06b6d4}
-.sim-spark.net polygon,.sim-spark.net polyline{stroke:var(--sim-tor);fill:var(--sim-tor)}
-.sim-mon-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-.sim-mon-kv{display:flex;align-items:center;justify-content:space-between;padding:2px 0}
-.sim-mon-kv-key{font-size:9px;color:var(--sim-t3)}
-.sim-mon-kv-val{font-size:9px;font-weight:700;color:var(--sim-t2)}
-.sim-sb-levels{padding:0 10px 4px}
-.sim-sb-level{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:6px;cursor:pointer;transition:background .12s;border:1px solid transparent;margin-bottom:3px}
-.sim-sb-level:hover{background:rgba(255,255,255,.04)}
-.sim-sb-level.active{background:rgba(109,40,217,.08);border-color:rgba(109,40,217,.2)}
-.sim-sb-ldot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.sim-sb-ldot.normal{background:var(--sim-tor)}.sim-sb-ldot.high{background:var(--sim-warn)}.sim-sb-ldot.max{background:var(--sim-dan);box-shadow:0 0 6px rgba(239,68,68,.4)}
-.sim-sb-linfo{flex:1}
-.sim-sb-lname{display:block;font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--sim-t);margin-bottom:1px}
-.sim-sb-ldesc{display:block;font-size:9px;color:var(--sim-t3)}
-.sim-sb-lcheck{font-size:11px;color:var(--sim-ac3);width:14px;text-align:center;flex-shrink:0}
-.sim-row{display:flex;align-items:center;justify-content:space-between;padding:6px 14px;font-size:10px;color:var(--sim-t2)}
-.sim-row-label{display:flex;align-items:center;gap:7px}
-.sim-toggle{width:32px;height:17px;border-radius:10px;background:rgba(255,255,255,.1);position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
-.sim-toggle::after{content:'';position:absolute;right:2px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff;transition:right .2s,left .2s}
-.sim-toggle.on{background:var(--sim-ac2)}
-.sim-toggle.on.green{background:var(--sim-tor)}
-.sim-toggle.on.warn{background:var(--sim-warn)}
-.sim-toggle.off::after{left:2px;right:auto}
-.sim-circuit{padding:8px 12px}
-.sim-circuit-nodes{display:flex;flex-direction:column;gap:4px;margin-top:4px}
-.sim-circuit-node{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:5px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);font-size:9px}
-.sim-circuit-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.sim-circuit-dot.you{background:var(--sim-ac3);box-shadow:0 0 6px var(--sim-ac3)}
-.sim-circuit-dot.guard{background:var(--sim-tor)}
-.sim-circuit-dot.middle{background:#f59e0b}
-.sim-circuit-dot.exit{background:#06b6d4}
-.sim-circuit-connector{width:1px;height:8px;background:var(--sim-bd2);margin-left:11px}
-.sim-circuit-label{font-size:9px;color:var(--sim-t2);font-weight:700;flex:1}
-.sim-circuit-country{font-size:9px;color:var(--sim-t3)}
-.sim-ua-wrap{padding:4px 12px 10px}
-.sim-ua-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--sim-t3);margin-bottom:5px}
-.sim-ua-select{width:100%;background:var(--sim-bg2);border:1px solid var(--sim-bd);border-radius:6px;color:var(--sim-t);font-family:inherit;font-size:10px;padding:5px 22px 5px 8px;cursor:pointer;outline:none;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23555'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center}
-.sim-tool-btn{display:flex;align-items:center;gap:10px;padding:8px 12px;background:none;border:none;border-radius:6px;cursor:pointer;transition:background .12s;text-align:left;margin:2px 12px;width:calc(100% - 24px)}
-.sim-tool-btn:hover{background:rgba(255,255,255,.04)}
-.sim-tool-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
-.sim-tool-label{display:block;font-size:10px;font-weight:700;color:var(--sim-t);letter-spacing:.5px}
-.sim-tool-sub{display:block;font-size:9px;color:var(--sim-t3)}
-.sim-theme-toggle-row{display:flex;align-items:center;justify-content:space-between;padding:6px 14px}
-.sim-theme-btn{font-size:9px;padding:3px 10px;border-radius:4px;border:1px solid var(--sim-bd2);background:transparent;color:var(--sim-t3);cursor:pointer;font-family:inherit;transition:all .15s}
-.sim-theme-btn:hover{border-color:var(--sim-ac);color:var(--sim-ac3)}
-.sim-gx-lim{padding:6px 12px;border-bottom:1px solid rgba(255,255,255,.04)}
-.sim-gx-header{display:flex;align-items:center;gap:8px;cursor:pointer;padding:2px 0}
-.sim-gx-icon{font-size:13px;width:18px;text-align:center;flex-shrink:0}
-.sim-gx-name{font-size:10px;font-weight:600;color:var(--sim-t2)}
-.sim-gx-val{font-size:9px;color:var(--sim-t3)}
-.sim-gx-sliders{padding:6px 0 4px 26px;display:none}
-.sim-gx-sliders.open{display:block}
-.sim-gx-slider{width:100%;-webkit-appearance:none;appearance:none;height:3px;background:var(--sim-bd2);border-radius:2px;outline:none;cursor:pointer}
-.sim-gx-slider::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--sim-ac3);cursor:pointer;box-shadow:0 0 6px rgba(139,92,246,.4)}
-/* Content */
-.sim-content{flex:1;background:#06050f;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:opacity .3s}
-.sim-content::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 45%,rgba(124,58,237,.07) 0%,transparent 70%)}
-.sim-content::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(124,58,237,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.03) 1px,transparent 1px);background-size:40px 40px;opacity:.4}
-.sim-newtab{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:0}
-@keyframes simNtFadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.sim-newtab>*{animation:simNtFadeUp .4s ease both}
-.sim-newtab>*:nth-child(1){animation-delay:.05s}.sim-newtab>*:nth-child(2){animation-delay:.1s}.sim-newtab>*:nth-child(3){animation-delay:.15s}.sim-newtab>*:nth-child(4){animation-delay:.2s}.sim-newtab>*:nth-child(5){animation-delay:.25s}
-.sim-nt-logo{display:flex;align-items:center;gap:20px;margin-bottom:20px}
-.sim-nt-eye{width:72px;height:72px;flex-shrink:0;filter:drop-shadow(0 0 20px rgba(124,58,237,.5))}
-.sim-nt-wordmark{display:flex;flex-direction:column;gap:4px;line-height:1}
-.sim-nt-shadow{font-size:42px;font-weight:800;letter-spacing:4px;text-transform:uppercase;background:linear-gradient(135deg,#e2e8f0 0%,#a78bfa 40%,#8b5cf6 60%,#06b6d4 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:simLogoShimmer 5s linear infinite}
-@keyframes simLogoShimmer{to{background-position:220% center}}
-.sim-nt-explorer{font-size:10px;letter-spacing:10px;color:#06b6d4;opacity:.6;text-transform:uppercase}
-.sim-nt-tagline{font-size:10px;letter-spacing:4px;color:rgba(255,255,255,.2);margin-bottom:14px;text-transform:uppercase}
-.sim-nt-badges{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;justify-content:center}
-.sim-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:1.5px;padding:5px 12px;border-radius:6px}
-.sim-badge.green{color:#4ade80;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)}
-.sim-badge.cyan{color:#22d3ee;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2)}
-.sim-badge.purple{color:#c4b5fd;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25)}
-.sim-badge-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.sim-badge-dot.g{background:#22c55e;box-shadow:0 0 6px #22c55e;animation:simLp 2.4s ease-in-out infinite}
-.sim-badge-dot.c{background:#22d3ee}.sim-badge-dot.p{background:#a78bfa;box-shadow:0 0 6px #a78bfa}
-.sim-nt-search{width:100%;max-width:440px;margin-bottom:18px}
-.sim-nt-search-inner{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;transition:border-color .2s;cursor:text}
-.sim-nt-search-inner:hover{border-color:rgba(124,58,237,.3)}
-.sim-nt-search-ph{flex:1;font-size:12px;color:rgba(255,255,255,.22);pointer-events:none}
-.sim-nt-search-go{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,#6d28d9,#06b6d4);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:opacity .2s}
-.sim-nt-search-go:hover{opacity:.8}
-.sim-nt-search-go svg{width:14px;height:14px;stroke:#fff;fill:none}
-.sim-nt-shortcuts{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.sim-kbs{font-size:10px;color:rgba(255,255,255,.2);display:flex;align-items:center;gap:5px}
-.sim-kbs kbd{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:2px 7px;font-size:9px;font-family:inherit;color:rgba(255,255,255,.45);letter-spacing:.5px}
-.sim-web-view{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .3s;background:#06050f}
-.sim-web-view.active{opacity:1;pointer-events:all}
-.sim-web-topbar{height:36px;background:#0d0d1a;display:flex;align-items:center;padding:0 16px;gap:10px;border-bottom:1px solid #1e1e35;font-size:11px;color:rgba(255,255,255,.4)}
-.sim-web-logo{width:16px;height:16px;border-radius:3px;flex-shrink:0}
-.sim-web-body{flex:1;padding:24px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
-.sim-web-h1{height:24px;border-radius:4px;background:rgba(255,255,255,.08);width:60%}
-.sim-web-p{height:10px;border-radius:3px;background:rgba(255,255,255,.04)}
-/* Statusbar */
-.sim-statusbar{background:var(--sim-bg0);border-top:1px solid var(--sim-bd);display:flex;align-items:center;gap:12px;padding:4px 14px;font-size:9px;color:var(--sim-t3);flex-shrink:0}
-.sim-status-tor{display:flex;align-items:center;gap:5px;margin-left:auto}
-.sim-status-tor-dot{width:5px;height:5px;border-radius:50%;background:var(--sim-tor);box-shadow:0 0 6px var(--sim-tor);animation:simLp 2.4s ease-in-out infinite}
-.sim-status-ver{opacity:.35;margin-left:8px}
+.rbs-sidebar{position:absolute;left:0;top:0;bottom:0;width:248px;background:rgba(6,6,14,.98);backdrop-filter:blur(24px);border-right:1px solid #2a2a48;box-shadow:8px 0 40px rgba(0,0,0,.7);display:flex;flex-direction:column;z-index:25;transform:translateX(-100%);transition:transform .18s cubic-bezier(.4,0,.2,1);pointer-events:none;overflow:hidden;font-family:var(--mono)}
+.rbs-sidebar.open{transform:translateX(0);pointer-events:all}
+
+/* Header sidebar */
+.rbs-sb-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 0;flex-shrink:0}
+.rbs-sb-title{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#64748b;display:flex;align-items:center;gap:6px}
+.rbs-sb-title::before{content:'';width:6px;height:6px;border-radius:50%;background:#8b5cf6;box-shadow:0 0 6px #8b5cf6;flex-shrink:0}
+.rbs-sb-pin{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;cursor:pointer;border:1px solid #2a2a48;background:transparent;color:#64748b;font-family:var(--mono);transition:all .15s}
+.rbs-sb-pin:hover,.rbs-sb-pin.on{border-color:#8b5cf6;color:#8b5cf6}
+.rbs-sb-pin.on{background:rgba(109,40,217,.1)}
+
+/* Tabs sidebar */
+.rbs-sb-tabs{display:flex;gap:2px;padding:8px 12px 0;flex-shrink:0}
+.rbs-sb-tab{flex:1;padding:5px 0;text-align:center;cursor:pointer;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#64748b;border-radius:5px 5px 0 0;border:1px solid transparent;border-bottom:none;transition:all .15s;position:relative}
+.rbs-sb-tab:hover{color:#94a3b8}
+.rbs-sb-tab.on{color:#e2e8f0;background:rgba(255,255,255,.03);border-color:#1e1e35}
+.rbs-sb-tab.on::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:#06060d}
+.rbs-sb-divider{height:1px;background:#1e1e35;flex-shrink:0}
+
+/* Panels */
+.rbs-sb-panel{display:none;flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#2a2a48 transparent}
+.rbs-sb-panel::-webkit-scrollbar{width:3px}
+.rbs-sb-panel::-webkit-scrollbar-thumb{background:#2a2a48;border-radius:2px}
+.rbs-sb-panel.on{display:block}
+.rbs-sec{padding:8px 0 6px;border-bottom:1px solid #1e1e35}
+.rbs-sec:last-child{border-bottom:none}
+.rbs-sec-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#64748b;padding:2px 12px 6px;display:flex;align-items:center;gap:6px}
+.rbs-sec-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.05);margin-left:4px}
+
+/* Monitoring widgets - calqués sur index.html mon-* */
+.rbs-mon{padding:4px 14px 10px}
+.rbs-mon-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px}
+.rbs-mon-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding-left:7px;border-left:2px solid currentColor;line-height:1.3;color:#64748b}
+.rbs-mon-lbl.cpu{color:#8b5cf6;border-color:#8b5cf6}
+.rbs-mon-lbl.ram{color:#06b6d4;border-color:#06b6d4}
+.rbs-mon-lbl.net{color:#10b981;border-color:#10b981}
+.rbs-mon-num{font-size:22px;font-weight:700;line-height:1;color:#e2e8f0;font-variant-numeric:tabular-nums;letter-spacing:-1px}
+.rbs-mon-unit{font-size:10px;color:#64748b}
+.rbs-mon-track{width:100%;height:5px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
+.rbs-mon-fill{height:100%;border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.rbs-mon-fill.cpu{background:#8b5cf6;box-shadow:0 0 8px rgba(139,92,246,.4)}
+.rbs-mon-fill.ram{background:#06b6d4;box-shadow:0 0 8px rgba(6,182,212,.4)}
+.rbs-mon-fill.net{background:#10b981;box-shadow:0 0 8px rgba(16,185,129,.4)}
+.rbs-spark{width:100%;height:28px;margin-top:6px;overflow:visible}
+.rbs-spark polyline{fill:none;stroke-width:1.5;opacity:.65;stroke-linejoin:round;stroke-linecap:round}
+.rbs-spark polygon{opacity:.1}
+.rbs-spark.cpu polyline{stroke:#8b5cf6}.rbs-spark.cpu polygon{fill:#8b5cf6}
+.rbs-spark.ram polyline{stroke:#06b6d4}.rbs-spark.ram polygon{fill:#06b6d4}
+.rbs-spark.net polyline{stroke:#10b981}.rbs-spark.net polygon{fill:#10b981}
+.rbs-mon-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 10px;margin-top:9px;padding-top:8px;border-top:1px solid rgba(30,30,53,.8)}
+.rbs-kv{display:flex;flex-direction:column;gap:2px}
+.rbs-kv-k{font-size:9px;letter-spacing:.8px;text-transform:uppercase;color:#64748b;opacity:.75}
+.rbs-kv-v{font-size:13px;font-weight:700;color:#94a3b8;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+
+/* Tabs counter */
+.rbs-tabs-big{display:flex;align-items:center;justify-content:space-between;padding:6px 14px 12px}
+.rbs-tabs-num{font-size:48px;font-weight:700;line-height:1;color:#60a5fa;letter-spacing:-3px;font-variant-numeric:tabular-nums}
+.rbs-tabs-meta{display:flex;flex-direction:column;gap:6px;text-align:right;font-size:10px;color:#64748b}
+.rbs-tabs-meta strong{color:#94a3b8;font-size:14px;font-weight:700}
+
+/* Toggles - calqués sur .sb-toggle */
+.rbs-toggle{width:30px;height:16px;border-radius:8px;border:1px solid #2a2a48;background:#1a1a2e;position:relative;cursor:pointer;flex-shrink:0;transition:background .2s,border-color .2s,box-shadow .2s}
+.rbs-toggle::after{content:'';position:absolute;top:2px;left:2px;width:10px;height:10px;border-radius:50%;background:#64748b;transition:transform .22s cubic-bezier(.34,1.56,.64,1),background .2s,box-shadow .2s}
+.rbs-toggle.on{background:rgba(109,40,217,.2);border-color:#6d28d9;box-shadow:0 0 0 1px rgba(109,40,217,.1) inset}
+.rbs-toggle.on::after{transform:translateX(14px);background:#8b5cf6;box-shadow:0 1px 4px rgba(139,92,246,.4)}
+.rbs-toggle.green.on{background:rgba(16,185,129,.12);border-color:#10b981}
+.rbs-toggle.green.on::after{background:#10b981;box-shadow:0 1px 4px rgba(16,185,129,.4)}
+.rbs-toggle.warn.on{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.5)}
+.rbs-toggle.warn.on::after{background:#f59e0b;box-shadow:0 1px 4px rgba(245,158,11,.4)}
+
+/* Rows */
+.rbs-row{display:flex;align-items:center;justify-content:space-between;padding:5px 12px;font-size:11px;color:#94a3b8;transition:background .15s}
+.rbs-row:hover{background:rgba(255,255,255,.025)}
+.rbs-row-lbl{display:flex;align-items:center;gap:8px}
+.rbs-row-ico{font-size:13px;width:16px;text-align:center;flex-shrink:0}
+
+/* Niveaux sécurité */
+.rbs-levels{padding:0 10px 4px}
+.rbs-level{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:7px;cursor:pointer;transition:background .12s;border:1px solid transparent;margin-bottom:3px}
+.rbs-level:hover{background:rgba(255,255,255,.04)}
+.rbs-level.on{background:rgba(109,40,217,.08);border-color:rgba(109,40,217,.2)}
+.rbs-ldot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.rbs-ldot.n{background:#10b981}.rbs-ldot.h{background:#f59e0b}.rbs-ldot.m{background:#ef4444;box-shadow:0 0 6px rgba(239,68,68,.4)}
+.rbs-linfo{flex:1;min-width:0}
+.rbs-lname{display:block;font-size:11px;font-weight:700;letter-spacing:.8px;color:#e2e8f0;margin-bottom:1px}
+.rbs-ldesc{display:block;font-size:9px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rbs-lcheck{font-size:10px;color:#8b5cf6;flex-shrink:0;width:12px;text-align:center}
+
+/* Circuit Tor - calqué sur .tor-circuit */
+.rbs-circuit{padding:6px 14px 10px}
+.rbs-circuit-title{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#64748b;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+.rbs-circuit-nodes{display:flex;align-items:center;gap:0}
+.rbs-node{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.rbs-node-flag{font-size:16px;line-height:1}
+.rbs-node-name{font-size:9px;color:#94a3b8;font-family:var(--mono);max-width:60px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center}
+.rbs-node-type{font-size:7px;color:#64748b;letter-spacing:.8px;text-transform:uppercase;opacity:.6}
+.rbs-node-arrow{color:#2a2a48;font-size:10px;flex-shrink:0;padding:0 2px}
+.rbs-node.entry .rbs-node-flag{filter:drop-shadow(0 0 4px rgba(16,185,129,.4))}
+.rbs-node.exit .rbs-node-flag{filter:drop-shadow(0 0 4px rgba(109,40,217,.4))}
+.rbs-circuit-refresh{background:transparent;border:none;color:#64748b;cursor:pointer;font-size:11px;padding:0 2px;transition:color .15s;font-family:var(--mono)}
+.rbs-circuit-refresh:hover{color:#10b981}
+
+/* UA select */
+.rbs-ua-wrap{padding:4px 12px 10px}
+.rbs-ua-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#64748b;margin-bottom:5px}
+.rbs-ua-sel{width:100%;background:#12121f;border:1px solid #1e1e35;border-radius:6px;color:#e2e8f0;font-family:var(--mono);font-size:10px;padding:5px 22px 5px 8px;cursor:pointer;outline:none;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23555'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center;transition:border-color .15s}
+.rbs-ua-sel:focus{border-color:#6d28d9}
+
+/* Boutons outils */
+.rbs-tool-btn{width:100%;display:flex;align-items:center;gap:10px;background:#12121f;border:1px solid #1e1e35;border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .15s;text-align:left;color:#e2e8f0;font-family:var(--mono)}
+.rbs-tool-btn:hover{background:rgba(109,40,217,.1);border-color:#6d28d9}
+.rbs-tool-ico{font-size:16px;flex-shrink:0;width:22px;text-align:center}
+.rbs-tool-lbl{font-size:11px;font-weight:600;color:#e2e8f0;display:block}
+.rbs-tool-sub{font-size:9px;color:#64748b;letter-spacing:.3px;display:block}
+.rbs-theme-btn{background:transparent;border:1px solid #1e1e35;border-radius:5px;color:#64748b;font-family:var(--mono);font-size:9px;letter-spacing:.5px;padding:3px 7px;cursor:pointer;transition:all .15s;flex-shrink:0}
+.rbs-theme-btn:hover{border-color:#8b5cf6;color:#8b5cf6}
+
 /* Toast */
-.sim-toast{position:absolute;bottom:36px;left:50%;transform:translateX(-50%) translateY(10px);background:rgba(13,13,26,.97);border:1px solid var(--sim-bd2);border-radius:8px;padding:8px 18px;font-size:11px;color:var(--sim-t);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap;z-index:100;box-shadow:0 8px 32px rgba(0,0,0,.5)}
-.sim-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* Modals */
-.sim-modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
-.sim-modal-overlay.show{opacity:1;pointer-events:all}
-.sim-modal-box{background:var(--sim-bg2);border:1px solid var(--sim-bd2);border-radius:12px;padding:24px;max-width:320px;width:90%;box-shadow:0 24px 64px rgba(0,0,0,.6)}
-.sim-modal-box h3{font-size:14px;margin-bottom:10px;color:var(--sim-t)}
-.sim-modal-box p{font-size:12px;color:var(--sim-t2);line-height:1.6;margin-bottom:20px}
-.sim-modal-actions{display:flex;gap:8px;justify-content:flex-end}
-.sim-modal-btn{font-size:11px;padding:6px 14px;border-radius:6px;cursor:pointer;font-family:inherit;border:1px solid var(--sim-bd2);background:var(--sim-bg3);color:var(--sim-t2);transition:all .15s}
-.sim-modal-btn:hover{background:var(--sim-bg2);color:var(--sim-t)}
-.sim-modal-btn.danger{background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.35);color:var(--sim-dan)}
-.sim-modal-btn.danger:hover{background:rgba(239,68,68,.25)}
+.rbs-toast{position:absolute;bottom:20px;left:50%;transform:translateX(-50%) translateY(4px);background:#1a1a2e;border:1px solid #2a2a48;color:#94a3b8;font-size:11px;padding:6px 13px;border-radius:7px;z-index:99;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;white-space:nowrap;font-family:var(--mono)}
+.rbs-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Modal Tor */
+.rbs-modal{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+.rbs-modal.show{opacity:1;pointer-events:all}
+.rbs-modal-box{background:#12121f;border:1px solid rgba(239,68,68,.35);border-radius:12px;padding:24px 28px;max-width:340px;width:88%;display:flex;flex-direction:column;gap:13px;box-shadow:0 0 40px rgba(239,68,68,.12)}
+.rbs-modal-box h3{font-size:15px;color:#ef4444;font-family:var(--mono)}
+.rbs-modal-box p{font-size:11px;color:#94a3b8;line-height:1.7}
+.rbs-modal-actions{display:flex;gap:8px;justify-content:flex-end}
+.rbs-mbtn{font-family:var(--mono);font-size:11px;font-weight:700;padding:6px 16px;border-radius:6px;cursor:pointer;border:1px solid;transition:all .15s}
+.rbs-mbtn.cancel{color:#94a3b8;border-color:#2a2a48;background:#1a1a2e}
+.rbs-mbtn.cancel:hover{border-color:#8b5cf6}
+.rbs-mbtn.danger{color:#fff;border-color:#ef4444;background:rgba(239,68,68,.8)}
+.rbs-mbtn.danger:hover{background:#ef4444}
+
 /* Panic */
-.sim-panic-overlay{position:absolute;inset:0;background:#080000;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;opacity:0;pointer-events:none;transition:opacity .15s}
-.sim-panic-overlay.show{opacity:1;pointer-events:all}
-.sim-panic-icon{font-size:40px}
-.sim-panic-text{font-size:13px;color:var(--sim-dan);letter-spacing:2px;text-transform:uppercase}
-.sim-panic-sub{font-size:10px;color:rgba(239,68,68,.5);letter-spacing:1px}
-/* Responsive */
-@media(max-width:700px){.sim-body{height:380px}.sim-sidebar.open{width:180px;min-width:180px}.sim-nt-shadow{font-size:28px}.sim-nt-shortcuts{display:none}.sim-nt-badges{gap:5px}.sim-badge{padding:4px 8px;font-size:9px}}
+.rbs-panic{position:absolute;inset:0;background:rgba(6,6,13,.97);backdrop-filter:blur(6px);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;opacity:0;pointer-events:none;transition:opacity .15s;font-family:var(--mono)}
+.rbs-panic.show{opacity:1;pointer-events:all}
+.rbs-panic-ico{font-size:36px}
+.rbs-panic-title{font-size:13px;color:#ef4444;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.rbs-panic-sub{font-size:11px;color:rgba(239,68,68,.5);letter-spacing:2px}
+
+/* GX sliders */
+.rbs-gx-lim{padding:6px 12px;border-bottom:1px solid rgba(255,255,255,.04)}
+.rbs-gx-head{display:flex;align-items:center;gap:8px;cursor:pointer;padding:2px 0}
+.rbs-gx-ico{font-size:13px;width:18px;text-align:center;flex-shrink:0}
+.rbs-gx-name{font-size:10px;font-weight:600;color:#94a3b8}
+.rbs-gx-val{font-size:9px;color:#64748b}
+.rbs-gx-slides{padding:6px 0 4px 26px;display:none}
+.rbs-gx-slides.on{display:block}
+.rbs-gx-slider{width:100%;-webkit-appearance:none;appearance:none;height:3px;background:#2a2a48;border-radius:2px;outline:none;cursor:pointer}
+.rbs-gx-slider::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:#8b5cf6;cursor:pointer;box-shadow:0 0 6px rgba(139,92,246,.4)}
+
+/* Titre badge TOR ON sur la titlebar modifié */
+.rbs-tor-on{color:#22c55e!important;border-color:rgba(34,197,94,.5)!important;background:rgba(34,197,94,.08)!important}
+.rbs-tor-off{color:#ef4444!important;border-color:rgba(239,68,68,.4)!important;background:rgba(239,68,68,.05)!important}
+
+/* Onglets dynamiques */
+.rbs-tab-close-btn{flex-shrink:0;width:14px;height:14px;border:none;background:transparent;color:#64748b;cursor:pointer;border-radius:3px;font-size:9px;display:flex;align-items:center;justify-content:center;transition:background .12s,color .12s;opacity:0}
+#rbsRoot .rb-tab span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;font-size:11px}
+#rbsRoot .rb-tab{min-width:80px;max-width:180px;flex:1 1 120px;overflow:hidden}
+#rbsRoot .rb-tabbar{overflow:hidden}
+#rbsRoot .rb-tab:hover .rbs-tab-close-btn,#rbsRoot .rb-tab-active .rbs-tab-close-btn{opacity:.6}
+#rbsRoot .rbs-tab-close-btn:hover{background:rgba(239,68,68,.22);color:#ef4444;opacity:1!important}
+.rb-tab:hover .rbs-tab-close-btn,.rb-tab-active .rbs-tab-close-btn{opacity:.6}
+.rbs-tab-close-btn:hover{background:rgba(239,68,68,.22);color:#ef4444;opacity:1!important}
+
+/* Web page placeholder */
+.rbs-webview{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;background:#06060d;opacity:0;pointer-events:none;transition:opacity .3s}
+.rbs-webview.show{opacity:1;pointer-events:all}
+#rbsRoot #rbsMain .rb-content{flex:1;position:relative;z-index:1}
+#rbsRoot #rbsMain .rbs-webview{position:absolute;inset:0;z-index:0}
+.rbs-webview-bar{height:28px;background:#0d0d1a;display:flex;align-items:center;padding:0 14px;gap:8px;border-bottom:1px solid #1e1e35;font-family:var(--mono);font-size:10px;color:#94a3b8;flex-shrink:0}
+.rbs-webview-logo{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.rbs-webview-body{flex:1;padding:28px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.rbs-webview-body::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(109,40,217,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(109,40,217,.02) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.rbs-wv-h1{height:26px;border-radius:5px;background:rgba(255,255,255,.07);width:54%;position:relative}
+.rbs-wv-p{height:11px;border-radius:3px;background:rgba(255,255,255,.04);position:relative}
+
+/* Bouton hamburger sidebar actif */
+.rbs-btn-sb.on{border-color:#6d28d9!important;color:#8b5cf6!important;background:rgba(109,40,217,.08)!important}
+
+/* Statusbar TOR indicator show */
+.rbs-status-tor-show{opacity:1!important}
 </style>
 
 </head>
@@ -639,354 +621,349 @@
 <div class="container">
 <p class="ew"><span data-fr>Aperçu</span><span data-en>Preview</span></p>
 <h2 class="st"><span data-fr>À quoi ça ressemble.</span><span data-en>What it looks like.</span></h2>
-<div class="screen-wrap reveal sim-root" id="simRoot">
+<div class="screen-wrap reveal" id="rbsRoot">
 
-<!-- ── Titlebar ── -->
-<div class="sim-titlebar">
-  <div class="sim-tl-left">
-    <div class="sim-trafficlights">
-      <div class="sim-tl sim-tl-r"></div>
-      <div class="sim-tl sim-tl-y"></div>
-      <div class="sim-tl sim-tl-g"></div>
-    </div>
-    <button class="sim-sb-btn" id="simSbBtn" onclick="simToggleSidebar()">
-      <div class="sim-sb-bar"></div><div class="sim-sb-bar"></div><div class="sim-sb-bar"></div>
+<!-- TITLEBAR -->
+<div class="rb-titlebar">
+  <div class="rb-trafficlights">
+    <div class="rb-tl rb-tl-r"></div>
+    <div class="rb-tl rb-tl-y"></div>
+    <div class="rb-tl rb-tl-g"></div>
+    <button id="rbsSbBtn" class="rb-icon-btn rbs-btn-sb" title="Monitoring (Alt+S)" style="margin-left:6px;width:22px;height:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:3px;border:1px solid transparent;border-radius:4px;background:transparent;cursor:pointer;color:rgba(255,255,255,.35)">
+      <span style="width:11px;height:1.5px;background:currentColor;border-radius:1px;display:block"></span>
+      <span style="width:11px;height:1.5px;background:currentColor;border-radius:1px;display:block"></span>
+      <span style="width:11px;height:1.5px;background:currentColor;border-radius:1px;display:block"></span>
     </button>
   </div>
-  <div class="sim-tl-center">
-    <span class="sim-logo-s">SHADOW</span>&nbsp;<span class="sim-logo-e">EXPL<span class="sim-logo-or">OR</span>ER</span>
+  <div class="rb-title">
+    <span class="rb-ts">SHADOW</span> <span class="rb-te">EXPL<span class="rb-tor-highlight">OR</span>ER</span>
   </div>
-  <div class="sim-tl-right">
-    <button class="sim-icon-btn" onclick="simShowToast('⚙ Paramètres')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
-    <button class="sim-icon-btn" onclick="simShowToast('⎙ Capture sans métadonnées enregistrée')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></button>
-    <button class="sim-icon-btn" onclick="simNewCircuit()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
-    <button class="sim-icon-btn acc" onclick="simTriggerPanic()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></button>
-    <div class="sim-tor-badge on" id="simTorBadge" onclick="simTorBadgeClick()">
-      <span class="sim-tor-dot" id="simTorDot"></span><span id="simTorLabel">TOR ON</span>
+  <div class="rb-titlebar-right">
+    <div class="rb-icon-btn" onclick="rbsToast('⚙ Paramètres')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+    <div class="rb-icon-btn" onclick="rbsToast('⎙ Capture sans métadonnées')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></div>
+    <div class="rb-icon-btn" onclick="rbsNewCircuit()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+    <div class="rb-icon-btn" style="color:#f59e0b" onclick="rbsPanic()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+    <div class="rb-tor-badge rbs-tor-on" id="rbsTorBadge" onclick="rbsTorClick()" style="cursor:pointer">
+      <span class="rb-tor-dot" id="rbsTorDot"></span>
+      <span id="rbsTorLabel">TOR ON</span>
     </div>
   </div>
 </div>
 
-<!-- ── Tabbar ── -->
-<div class="sim-tabbar" id="simTabbar">
-  <div class="sim-tab active" id="simTab-newtab" onclick="simSwitchTab('newtab',this)">
-    <div class="sim-tab-fav"></div>
+<!-- TABBAR -->
+<div class="rb-tabbar" id="rbsTabbar">
+  <div class="rb-tab rb-tab-active" id="rbsTab1">
+    <div class="rb-tab-favicon"><img src="data:image/svg+xml,%3Csvg xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27 viewBox%3D%270 0 14 14%27%3E%3Ccircle cx%3D%277%27 cy%3D%277%27 r%3D%276.5%27 fill%3D%27%230d0d1a%27 stroke%3D%27%236d28d9%27 stroke-width%3D%271%27%2F%3E%3Cpath d%3D%27M7 2.5L10.5 4.5V9.5L7 11.5L3.5 9.5V4.5Z%27 fill%3D%27%238b5cf6%27 opacity%3D%270.85%27%2F%3E%3Ccircle cx%3D%277%27 cy%3D%277%27 r%3D%272%27 fill%3D%27%230d0d1a%27%2F%3E%3Ccircle cx%3D%277%27 cy%3D%277%27 r%3D%271%27 fill%3D%27%238b5cf6%27%2F%3E%3C%2Fsvg%3E" width="14" height="14" style="border-radius:2px;display:block"></div>
     <span data-fr>Nouvel onglet</span><span data-en>New tab</span>
-    <span class="sim-tab-close" onclick="event.stopPropagation();simCloseTab(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+    <button class="rbs-tab-close-btn" onclick="event.stopPropagation();rbsCloseTab(1)">✕</button>
   </div>
-  <button class="sim-new-tab" onclick="simAddTab()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+  <button class="rb-new-tab" onclick="rbsAddTab()" title="Nouvel onglet">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </button>
 </div>
 
-<!-- ── Navbar ── -->
-<div class="sim-navbar">
-  <button class="sim-nav-btn dim" id="simNavBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg></button>
-  <button class="sim-nav-btn dim" id="simNavFwd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg></button>
-  <button class="sim-nav-btn" onclick="simFakeReload()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
-  <div class="sim-url" onclick="simShowToast('🔒 Recherche via DuckDuckGo Tor')">
-    <span class="sim-url-proto" id="simProto">shadow://</span>
-    <span id="simUrlText">newtab</span>
+<!-- URLBAR -->
+<div class="rb-urlbar">
+  <div class="rb-nav-btns">
+    <button class="rb-nav-btn rb-nav-btn-dim" id="rbsNavBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <button class="rb-nav-btn rb-nav-btn-dim" id="rbsNavFwd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <button class="rb-nav-btn" onclick="rbsReload()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></button>
   </div>
-  <div class="sim-sec-pill" onclick="simShowToast('🛡 Protection maximale active')">
-    <div class="sim-sec-dot" id="simSecDot"></div>
-    <span id="simSecLabel">NORMAL</span>
-    <span style="color:var(--sim-t3);margin:0 2px">·</span>
-    <span class="sim-shield-count">🛡 <span id="simBlockedCount">0</span></span>
+  <div class="rb-url-field" onclick="rbsToast('🔒 Recherche désactivée dans la démo')">
+    <span class="rb-url-ph" id="rbsUrlText">shadow://newtab</span>
   </div>
-  <div class="sim-load-bar" id="simLoadBar"></div>
+  <div class="rb-normal-badge" id="rbsSecBadge">
+    <span class="rb-ndot" id="rbsSecDot" style="background:#10b981"></span>
+    <span id="rbsSecLabel">NORMAL</span>
+  </div>
+  <div id="rbsLoadBar" style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c3aed,#8b5cf6);transform:scaleX(0);transform-origin:left;transition:transform 2s ease-out;opacity:0"></div>
 </div>
 
-<!-- ── Body ── -->
-<div class="sim-body">
+<!-- BODY : contenu principal + sidebar superposée -->
+<div class="rbs-body">
+  <!-- Zone trigger sidebar -->
+  <div class="rbs-trigger" id="rbsTrigger"></div>
 
   <!-- SIDEBAR -->
-  <div class="sim-sidebar" id="simSidebar">
-    <div class="sim-sb-header">
-      <div class="sim-sb-title">Shadow</div>
-      <button class="sim-sb-pin" id="simSbPin" onclick="simTogglePin()">ÉPINGLER</button>
+  <div class="rbs-sidebar" id="rbsSidebar">
+    <div class="rbs-sb-head">
+      <div class="rbs-sb-title">Shadow</div>
+      <button class="rbs-sb-pin" id="rbsSbPin" onclick="rbsTogglePin()">ÉPINGLER</button>
     </div>
-    <div class="sim-sb-tabs">
-      <div class="sim-sb-tab active" onclick="simSwitchSbPanel('perf',this)">PERF</div>
-      <div class="sim-sb-tab" onclick="simSwitchSbPanel('sec',this)">SÉCURITÉ</div>
-      <div class="sim-sb-tab" onclick="simSwitchSbPanel('tools',this)">OUTILS</div>
+    <div class="rbs-sb-tabs">
+      <div class="rbs-sb-tab on" id="rbsTabPerf" onclick="rbsSwitchPanel('perf',this)">PERF</div>
+      <div class="rbs-sb-tab" id="rbsTabSec" onclick="rbsSwitchPanel('sec',this)">SÉCURITÉ</div>
+      <div class="rbs-sb-tab" id="rbsTabTools" onclick="rbsSwitchPanel('tools',this)">OUTILS</div>
     </div>
-    <div class="sim-sb-panels">
+    <div class="rbs-sb-divider"></div>
 
-      <!-- PANEL PERF -->
-      <div class="sim-sb-panel active" id="simSbp-perf">
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Processeur</div>
-          <div class="sim-mon-widget">
-            <div class="sim-mon-header"><div class="sim-mon-label">CPU total</div><div class="sim-mon-val"><span id="simVCpu">4.2</span><span class="sim-mon-unit">%</span></div></div>
-            <div class="sim-mon-track"><div class="sim-mon-fill cpu" id="simBCpu" style="width:4.2%"></div></div>
-            <svg class="sim-spark cpu" viewBox="0 0 200 28" preserveAspectRatio="none"><polygon id="simSpCpuPoly" points=""/><polyline id="simSpCpuLine" points=""/></svg>
-            <div class="sim-mon-grid">
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Cœurs</span><span class="sim-mon-kv-val">8</span></div>
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Browser</span><span class="sim-mon-kv-val" id="simVCpuB">1.1%</span></div>
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Renderers</span><span class="sim-mon-kv-val" id="simVCpuR">2.8%</span></div>
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Process</span><span class="sim-mon-kv-val" id="simVProcs">5</span></div>
+    <!-- PANEL PERF -->
+    <div class="rbs-sb-panel on" id="rbsPanelPerf">
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Processeur</div>
+        <div class="rbs-mon">
+          <div class="rbs-mon-head">
+            <div class="rbs-mon-lbl cpu">CPU total</div>
+            <div><span class="rbs-mon-num" id="rbsVCpu">4.2</span><span class="rbs-mon-unit">%</span></div>
+          </div>
+          <div class="rbs-mon-track"><div class="rbs-mon-fill cpu" id="rbsBCpu" style="width:4.2%"></div></div>
+          <svg class="rbs-spark cpu" viewBox="0 0 200 28" preserveAspectRatio="none">
+            <polygon id="rbsSpCpuP" points=""/><polyline id="rbsSpCpuL" points=""/>
+          </svg>
+          <div class="rbs-mon-grid">
+            <div class="rbs-kv"><span class="rbs-kv-k">Cœurs</span><span class="rbs-kv-v">8</span></div>
+            <div class="rbs-kv"><span class="rbs-kv-k">Browser</span><span class="rbs-kv-v" id="rbsVCpuB">1.1%</span></div>
+            <div class="rbs-kv"><span class="rbs-kv-k">Renderers</span><span class="rbs-kv-v" id="rbsVCpuR">2.8%</span></div>
+            <div class="rbs-kv"><span class="rbs-kv-k">Process</span><span class="rbs-kv-v" id="rbsVProcs">5</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Mémoire</div>
+        <div class="rbs-mon">
+          <div class="rbs-mon-head">
+            <div class="rbs-mon-lbl ram">RAM système</div>
+            <div><span class="rbs-mon-num" id="rbsVRam">312</span><span class="rbs-mon-unit">MB</span></div>
+          </div>
+          <div class="rbs-mon-track"><div class="rbs-mon-fill ram" id="rbsBRam" style="width:32%"></div></div>
+          <svg class="rbs-spark ram" viewBox="0 0 200 28" preserveAspectRatio="none">
+            <polygon id="rbsSpRamP" points=""/><polyline id="rbsSpRamL" points=""/>
+          </svg>
+          <div class="rbs-mon-grid">
+            <div class="rbs-kv"><span class="rbs-kv-k">Total</span><span class="rbs-kv-v">16 GB</span></div>
+            <div class="rbs-kv"><span class="rbs-kv-k">Libre</span><span class="rbs-kv-v" id="rbsVRamF">10.8 GB</span></div>
+            <div class="rbs-kv"><span class="rbs-kv-k">Electron</span><span class="rbs-kv-v" id="rbsVRamE">148 MB</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Réseau</div>
+        <div class="rbs-mon">
+          <div class="rbs-mon-head">
+            <div class="rbs-mon-lbl net">Débit Tor</div>
+            <div><span class="rbs-mon-num" id="rbsVNet">0</span><span class="rbs-mon-unit" id="rbsVNetU">KB/s</span></div>
+          </div>
+          <div class="rbs-mon-track"><div class="rbs-mon-fill net" id="rbsBNet" style="width:0%"></div></div>
+          <svg class="rbs-spark net" viewBox="0 0 200 28" preserveAspectRatio="none">
+            <polygon id="rbsSpNetP" points=""/><polyline id="rbsSpNetL" points=""/>
+          </svg>
+          <div class="rbs-mon-grid">
+            <div class="rbs-kv"><span class="rbs-kv-k">Total reçu</span><span class="rbs-kv-v" id="rbsVRx">0 KB</span></div>
+            <div class="rbs-kv"><span class="rbs-kv-k">Requêtes</span><span class="rbs-kv-v" id="rbsVReq">0</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Onglets</div>
+        <div class="rbs-tabs-big">
+          <span class="rbs-tabs-num" id="rbsVTabs">1</span>
+          <div class="rbs-tabs-meta">
+            <div>Pages web <strong id="rbsVPages">0</strong></div>
+            <div>Bloquées <strong id="rbsVBlocked" style="color:#8b5cf6">0</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Limiteurs GX</div>
+        <div class="rbs-gx-lim">
+          <div class="rbs-gx-head" onclick="document.getElementById('rbsGxNetS').classList.toggle('on')">
+            <div class="rbs-gx-ico">🌐</div>
+            <div style="flex:1"><div class="rbs-gx-name">Bande passante</div><div class="rbs-gx-val" id="rbsGxNetV">Illimitée</div></div>
+            <div class="rbs-toggle" id="rbsGxNetT" onclick="event.stopPropagation();rbsGxToggle('net',this)"></div>
+          </div>
+          <div class="rbs-gx-slides" id="rbsGxNetS">
+            <div style="display:flex;align-items:center;gap:6px;padding-right:4px">
+              <span style="font-size:9px;color:#64748b;width:52px;flex-shrink:0">Limite</span>
+              <input type="range" class="rbs-gx-slider" min="0" max="100" value="0" oninput="rbsGxNetIn(this.value)">
+              <span style="font-size:9px;color:#8b5cf6;width:34px;text-align:right" id="rbsGxNetO">∞</span>
             </div>
           </div>
         </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Mémoire</div>
-          <div class="sim-mon-widget">
-            <div class="sim-mon-header"><div class="sim-mon-label">RAM système</div><div class="sim-mon-val"><span id="simVRam">312</span><span class="sim-mon-unit">MB</span></div></div>
-            <div class="sim-mon-track"><div class="sim-mon-fill ram" id="simBRam" style="width:32%"></div></div>
-            <svg class="sim-spark ram" viewBox="0 0 200 28" preserveAspectRatio="none"><polygon id="simSpRamPoly" points=""/><polyline id="simSpRamLine" points=""/></svg>
-            <div class="sim-mon-grid">
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Total</span><span class="sim-mon-kv-val">16 GB</span></div>
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Libre</span><span class="sim-mon-kv-val" id="simVRamFree">10.8 GB</span></div>
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Electron</span><span class="sim-mon-kv-val" id="simVRamEl">148 MB</span></div>
-            </div>
+        <div class="rbs-gx-lim">
+          <div class="rbs-gx-head">
+            <div class="rbs-gx-ico">💤</div>
+            <div style="flex:1"><div class="rbs-gx-name">Onglets BG</div><div class="rbs-gx-val" id="rbsGxBgV">Actifs</div></div>
+            <div class="rbs-toggle" id="rbsGxBgT" onclick="rbsGxToggle('bg',this)"></div>
           </div>
         </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Réseau</div>
-          <div class="sim-mon-widget">
-            <div class="sim-mon-header"><div class="sim-mon-label">Débit Tor</div><div class="sim-mon-val"><span id="simVNet">0</span><span class="sim-mon-unit">KB/s</span></div></div>
-            <div class="sim-mon-track"><div class="sim-mon-fill net" id="simBNet" style="width:0%"></div></div>
-            <svg class="sim-spark net" viewBox="0 0 200 28" preserveAspectRatio="none"><polygon id="simSpNetPoly" points=""/><polyline id="simSpNetLine" points=""/></svg>
-            <div class="sim-mon-grid">
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Total reçu</span><span class="sim-mon-kv-val" id="simVRx">0 KB</span></div>
-              <div class="sim-mon-kv"><span class="sim-mon-kv-key">Requêtes</span><span class="sim-mon-kv-val" id="simVReq">0</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Onglets</div>
-          <div style="padding:8px 14px;display:flex;align-items:center;gap:12px;">
-            <span style="font-size:32px;font-weight:900;color:#e2e8f0;" id="simVTabs">1</span>
-            <div style="display:flex;flex-direction:column;gap:2px;">
-              <div style="font-size:9px;color:#64748b;">Pages web <strong style="color:#94a3b8;" id="simVPages">0</strong></div>
-              <div style="font-size:9px;color:#64748b;">Bloquées <strong style="color:#8b5cf6;" id="simVBlocked">0</strong></div>
-            </div>
-          </div>
-        </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Limiteurs GX</div>
-          <div class="sim-gx-lim">
-            <div class="sim-gx-header" onclick="simToggleGx('net')">
-              <div class="sim-gx-icon">🌐</div>
-              <div style="flex:1;"><div class="sim-gx-name">Bande passante</div><div class="sim-gx-val" id="simGxNetVal">Illimitée</div></div>
-              <div class="sim-toggle off" id="simGxNetToggle" onclick="event.stopPropagation();simToggleGxSwitch('net',this)"></div>
-            </div>
-            <div class="sim-gx-sliders" id="simGxNetSliders">
-              <div style="display:flex;align-items:center;gap:6px;padding-right:4px;">
-                <span style="font-size:9px;color:#64748b;width:52px;flex-shrink:0;">Limite</span>
-                <input type="range" class="sim-gx-slider" min="0" max="100" value="0" oninput="simGxNetInput(this.value)">
-                <span style="font-size:9px;color:#8b5cf6;width:34px;text-align:right;" id="simGxNetOut">∞</span>
-              </div>
-            </div>
-          </div>
-          <div class="sim-gx-lim">
-            <div class="sim-gx-header">
-              <div class="sim-gx-icon">💤</div>
-              <div style="flex:1;"><div class="sim-gx-name">Onglets BG</div><div class="sim-gx-val" id="simGxBgVal">Actifs</div></div>
-              <div class="sim-toggle off" id="simGxBgToggle" onclick="simToggleGxSwitch('bg',this)"></div>
-            </div>
-          </div>
-        </div>
-      </div><!-- /perf -->
+      </div>
+    </div>
 
-      <!-- PANEL SÉCURITÉ -->
-      <div class="sim-sb-panel" id="simSbp-sec">
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Protection</div>
-          <div style="font-size:9px;color:#64748b;padding:0 14px 8px;opacity:.7;">Niveau de protection</div>
-          <div class="sim-sb-levels">
-            <div class="sim-sb-level active" data-l="normal" onclick="simSetSecLevel('normal')">
-              <div class="sim-sb-ldot normal"></div>
-              <div class="sim-sb-linfo"><span class="sim-sb-lname">NORMAL</span><span class="sim-sb-ldesc">Protection maximale standard</span></div>
-              <div class="sim-sb-lcheck" id="simSlcN">✓</div>
-            </div>
-            <div class="sim-sb-level" data-l="high" onclick="simSetSecLevel('high')">
-              <div class="sim-sb-ldot high"></div>
-              <div class="sim-sb-linfo"><span class="sim-sb-lname">ÉLEVÉ</span><span class="sim-sb-ldesc">Banking, email, réseaux sociaux</span></div>
-              <div class="sim-sb-lcheck" id="simSlcH"></div>
-            </div>
-            <div class="sim-sb-level" data-l="max" onclick="simSetSecLevel('max')">
-              <div class="sim-sb-ldot max"></div>
-              <div class="sim-sb-linfo"><span class="sim-sb-lname">MAX</span><span class="sim-sb-ldesc">.onion, HTTP, login détecté</span></div>
-              <div class="sim-sb-lcheck" id="simSlcX"></div>
-            </div>
+    <!-- PANEL SÉCURITÉ -->
+    <div class="rbs-sb-panel" id="rbsPanelSec">
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Protection</div>
+        <div style="font-size:9px;color:#64748b;padding:0 14px 8px;opacity:.7">Niveau de protection</div>
+        <div class="rbs-levels">
+          <div class="rbs-level on" data-l="n" onclick="rbsSetLevel('n',this)">
+            <div class="rbs-ldot n"></div>
+            <div class="rbs-linfo"><span class="rbs-lname">NORMAL</span><span class="rbs-ldesc">Protection maximale standard</span></div>
+            <div class="rbs-lcheck" id="rbsLcN">✓</div>
           </div>
-          <div style="font-size:9px;color:#64748b;padding:2px 16px 4px;display:flex;align-items:center;gap:4px;"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6;display:inline-block;"></span>Niveau auto-détecté</div>
-        </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Contrôles</div>
-          <div class="sim-row"><div class="sim-row-label"><span>🧅</span><span>Tor</span></div><div class="sim-toggle on green" id="simSbTorT" onclick="simToggleTor()"></div></div>
-          <div class="sim-row"><div class="sim-row-label"><span>🛡</span><span>Publicités</span></div><div class="sim-toggle on" onclick="simToggleFilter('ads',this)"></div></div>
-          <div class="sim-row"><div class="sim-row-label"><span>👁</span><span>Traqueurs</span></div><div class="sim-toggle on" onclick="simToggleFilter('trk',this)"></div></div>
-          <div class="sim-row"><div class="sim-row-label"><span>⚡</span><span>JavaScript</span></div><div class="sim-toggle on warn" onclick="simToggleFilter('js',this)"></div></div>
-        </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Circuit Tor</div>
-          <div class="sim-circuit">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-              <span style="font-size:9px;color:#64748b;" id="simCircuitLabel">Circuit actif</span>
-              <button style="font-size:9px;background:none;border:none;color:#8b5cf6;cursor:pointer;font-family:inherit;" onclick="simNewCircuit()">↻ Nouveau</button>
-            </div>
-            <div class="sim-circuit-nodes">
-              <div class="sim-circuit-node"><div class="sim-circuit-dot you"></div><span class="sim-circuit-label">VOUS</span><span class="sim-circuit-country">192.168.1.x</span></div>
-              <div class="sim-circuit-connector"></div>
-              <div class="sim-circuit-node"><div class="sim-circuit-dot guard"></div><span class="sim-circuit-label">Guard</span><span class="sim-circuit-country" id="simCGuard">🇩🇪 Frankfurt</span></div>
-              <div class="sim-circuit-connector"></div>
-              <div class="sim-circuit-node"><div class="sim-circuit-dot middle"></div><span class="sim-circuit-label">Middle</span><span class="sim-circuit-country" id="simCMiddle">🇳🇱 Amsterdam</span></div>
-              <div class="sim-circuit-connector"></div>
-              <div class="sim-circuit-node"><div class="sim-circuit-dot exit"></div><span class="sim-circuit-label">Exit</span><span class="sim-circuit-country" id="simCExit">🇸🇪 Stockholm</span></div>
-            </div>
+          <div class="rbs-level" data-l="h" onclick="rbsSetLevel('h',this)">
+            <div class="rbs-ldot h"></div>
+            <div class="rbs-linfo"><span class="rbs-lname">ÉLEVÉ</span><span class="rbs-ldesc">Banking, email, réseaux sociaux</span></div>
+            <div class="rbs-lcheck" id="rbsLcH"></div>
+          </div>
+          <div class="rbs-level" data-l="m" onclick="rbsSetLevel('m',this)">
+            <div class="rbs-ldot m"></div>
+            <div class="rbs-linfo"><span class="rbs-lname">MAX</span><span class="rbs-ldesc">.onion, HTTP, login détecté</span></div>
+            <div class="rbs-lcheck" id="rbsLcM"></div>
           </div>
         </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Identité</div>
-          <div class="sim-ua-wrap">
-            <div class="sim-ua-label">User-Agent actif</div>
-            <select class="sim-ua-select" onchange="simChangeUA(this)">
-              <option>🎭 Aléatoire (recommandé)</option>
-              <option>🦊 Firefox 125 — Windows</option>
-              <option>🌐 Chrome 124 — macOS</option>
-              <option>🔵 Edge 124 — Windows</option>
-              <option>🌍 Safari 17 — macOS</option>
-            </select>
+        <div style="font-size:9px;color:#64748b;padding:2px 16px 4px;display:flex;align-items:center;gap:4px"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6;display:inline-block"></span>Niveau auto-détecté</div>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Contrôles</div>
+        <div class="rbs-row"><div class="rbs-row-lbl"><span class="rbs-row-ico">🧅</span><span>Tor</span></div><div class="rbs-toggle green on" id="rbsTorToggle" onclick="rbsTorSbToggle()"></div></div>
+        <div class="rbs-row"><div class="rbs-row-lbl"><span class="rbs-row-ico">🛡</span><span>Publicités</span></div><div class="rbs-toggle on" id="rbsAdsT" onclick="rbsFilterToggle('ads',this)"></div></div>
+        <div class="rbs-row"><div class="rbs-row-lbl"><span class="rbs-row-ico">👁</span><span>Traqueurs</span></div><div class="rbs-toggle on" id="rbsTrkT" onclick="rbsFilterToggle('trk',this)"></div></div>
+        <div class="rbs-row"><div class="rbs-row-lbl"><span class="rbs-row-ico">⚡</span><span>JavaScript</span></div><div class="rbs-toggle warn on" id="rbsJsT" onclick="rbsFilterToggle('js',this)"></div></div>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Circuit Tor</div>
+        <div class="rbs-circuit">
+          <div class="rbs-circuit-title">
+            <span id="rbsCircLabel">Circuit actif</span>
+            <button class="rbs-circuit-refresh" onclick="rbsNewCircuit()">↻ Nouveau</button>
+          </div>
+          <div class="rbs-circuit-nodes" id="rbsCircNodes">
+            <div class="rbs-node entry"><div class="rbs-node-flag">🌐</div><div class="rbs-node-name">VOUS</div><div class="rbs-node-type">local</div></div>
+            <div class="rbs-node-arrow">→</div>
+            <div class="rbs-node entry"><div class="rbs-node-flag">🇩🇪</div><div class="rbs-node-name">Guard</div><div class="rbs-node-type" id="rbsCG">Frankfurt</div></div>
+            <div class="rbs-node-arrow">→</div>
+            <div class="rbs-node"><div class="rbs-node-flag">🇳🇱</div><div class="rbs-node-name">Middle</div><div class="rbs-node-type" id="rbsCM">Amsterdam</div></div>
+            <div class="rbs-node-arrow">→</div>
+            <div class="rbs-node exit"><div class="rbs-node-flag">🇸🇪</div><div class="rbs-node-name">Exit</div><div class="rbs-node-type" id="rbsCE">Stockholm</div></div>
           </div>
         </div>
-      </div><!-- /sec -->
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Identité</div>
+        <div class="rbs-ua-wrap">
+          <div class="rbs-ua-lbl">User-Agent actif</div>
+          <select class="rbs-ua-sel" id="rbsUaSel">
+            <option>🎭 Aléatoire (recommandé)</option>
+            <option>🦊 Firefox 125 — Windows</option>
+            <option>🌐 Chrome 124 — macOS</option>
+            <option>🔵 Edge 124 — Windows</option>
+            <option>🌍 Safari 17 — macOS</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-      <!-- PANEL OUTILS -->
-      <div class="sim-sb-panel" id="simSbp-tools">
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Navigation</div>
-          <button class="sim-tool-btn" onclick="simShowToast('⏱ Aucun historique — Shadow Explorer n\'enregistre rien')">
-            <span class="sim-tool-icon">⏱</span><span><span class="sim-tool-label">Historique</span><span class="sim-tool-sub">Session RAM · Ctrl+H</span></span>
+    <!-- PANEL OUTILS -->
+    <div class="rbs-sb-panel" id="rbsPanelTools">
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Navigation</div>
+        <div style="padding:0 10px 6px">
+          <button class="rbs-tool-btn" id="rbsBtnHistory">
+            <span class="rbs-tool-ico">⏱</span><span><span class="rbs-tool-lbl">Historique</span><span class="rbs-tool-sub">Session RAM · Ctrl+H</span></span>
           </button>
         </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Contenu</div>
-          <button class="sim-tool-btn" onclick="simShowToast('✎ Notes chiffrées AES-256-GCM')">
-            <span class="sim-tool-icon">✎</span><span><span class="sim-tool-label">Notes chiffrées</span><span class="sim-tool-sub">AES-256-GCM · Ctrl+Shift+N</span></span>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Contenu</div>
+        <div style="padding:0 10px 6px">
+          <button class="rbs-tool-btn" onclick="rbsToast('✎ Notes chiffrées AES-256-GCM')">
+            <span class="rbs-tool-ico">✎</span><span><span class="rbs-tool-lbl">Notes chiffrées</span><span class="rbs-tool-sub">AES-256-GCM · Ctrl+Shift+N</span></span>
           </button>
         </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Affichage</div>
-          <div class="sim-theme-toggle-row">
-            <div style="font-size:10px;color:#94a3b8;display:flex;align-items:center;gap:7px;"><span>◑</span><span>Thème clair/sombre</span></div>
-            <button class="sim-theme-btn" onclick="simShowToast('◑ Thème basculé')">Ctrl+Shift+L</button>
-          </div>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Affichage</div>
+        <div class="rbs-row">
+          <div class="rbs-row-lbl"><span class="rbs-row-ico">◑</span><span>Thème clair/sombre</span></div>
+          <button class="rbs-theme-btn" onclick="rbsToast('◑ Thème basculé')">Ctrl+Shift+L</button>
         </div>
-        <div class="sim-sb-section">
-          <div class="sim-sb-sec-title">Mode Panic</div>
-          <button class="sim-tool-btn" style="color:#ef4444" onclick="simTriggerPanic()">
-            <span class="sim-tool-icon">⚡</span><span><span class="sim-tool-label" style="color:#ef4444">Effacer et quitter</span><span class="sim-tool-sub">Ctrl+Shift+X</span></span>
+      </div>
+      <div class="rbs-sec">
+        <div class="rbs-sec-title">Mode Panic</div>
+        <div style="padding:0 10px 6px">
+          <button class="rbs-tool-btn" style="color:#ef4444" onclick="rbsPanic()">
+            <span class="rbs-tool-ico">⚡</span><span><span class="rbs-tool-lbl" style="color:#ef4444">Effacer et quitter</span><span class="rbs-tool-sub">Ctrl+Shift+X</span></span>
           </button>
         </div>
-      </div><!-- /tools -->
-
-    </div><!-- /sb-panels -->
+      </div>
+    </div>
   </div><!-- /sidebar -->
 
-  <!-- CONTENU PRINCIPAL -->
-  <div class="sim-content" id="simContent">
-    <!-- Newtab -->
-    <div class="sim-newtab" id="simNewtab">
-      <div class="sim-nt-logo">
-        <svg class="sim-nt-eye" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="simNtIris" cx="42%" cy="38%" r="55%"><stop offset="0%" stop-color="#4c1d95"/><stop offset="35%" stop-color="#6d28d9"/><stop offset="70%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#0891b2"/></radialGradient>
-            <radialGradient id="simNtPupil" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#1e0040"/><stop offset="100%" stop-color="#06040b"/></radialGradient>
-            <clipPath id="simNtEye"><path d="M18,100 C50,50 150,50 182,100 C150,150 50,150 18,100 Z"/></clipPath>
-            <filter id="simNtGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-          <ellipse cx="100" cy="100" rx="82" ry="50" fill="#040310" clip-path="url(#simNtEye)"/>
-          <circle cx="100" cy="100" r="50" fill="url(#simNtIris)" clip-path="url(#simNtEye)"/>
-          <g clip-path="url(#simNtEye)" opacity=".35">
-            <circle cx="100" cy="100" r="35" fill="none" stroke="#8b5cf6" stroke-width=".8"/>
-            <circle cx="100" cy="100" r="22" fill="none" stroke="#06b6d4" stroke-width=".5"/>
-            <line x1="100" y1="65" x2="100" y2="135" stroke="#8b5cf6" stroke-width=".7"/>
-            <line x1="65" y1="100" x2="135" y2="100" stroke="#06b6d4" stroke-width=".7"/>
-          </g>
-          <circle cx="100" cy="100" r="24" fill="url(#simNtPupil)"/>
-          <circle cx="93" cy="90" r="4" fill="white" opacity=".12" filter="url(#simNtGlow)"/>
-          <circle cx="93" cy="90" r="2" fill="white" opacity=".5"/>
-          <path d="M18,100 C50,50 150,50 182,100" fill="none" stroke="#6d28d9" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M18,100 C50,150 150,150 182,100" fill="none" stroke="#1e1e35" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <div class="sim-nt-wordmark">
-          <div class="sim-nt-shadow">Shadow</div>
-          <div class="sim-nt-explorer">Explorer</div>
+  <!-- ZONE PRINCIPALE (newtab + webview simulée) -->
+  <div class="rbs-main" id="rbsMain">
+    <!-- Newtab page -->
+    <div class="rb-content" id="rbsNewtab">
+      <div class="rb-newtab-inner">
+        <div style="display:flex;align-items:center;gap:24px;margin-bottom:8px">
+<div style="width:100px;height:100px;flex-shrink:0;filter:drop-shadow(0 0 22px rgba(109,40,217,.5)) drop-shadow(0 0 10px rgba(6,182,212,.25))"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><style>@keyframes nt-gaze{0%{transform:translate(0px,0px) scale(1)}6%{transform:translate(0px,0px) scale(1);animation-timing-function:cubic-bezier(.95,0,.05,1)}8%{transform:translate(11px,-8px) scale(.93)}21%{transform:translate(11px,-8px) scale(.93);animation-timing-function:cubic-bezier(.95,0,.05,1)}23%{transform:translate(-11px,8px) scale(.93)}34%{transform:translate(-11px,8px) scale(.93);animation-timing-function:cubic-bezier(.95,0,.05,1)}36%{transform:translate(14px,2px) scale(.93)}44%{transform:translate(14px,2px) scale(.93);animation-timing-function:cubic-bezier(.95,0,.05,1)}46%{transform:translate(-9px,-10px) scale(.93)}56%{transform:translate(-9px,-10px) scale(.93);animation-timing-function:cubic-bezier(.95,0,.05,1)}58%{transform:translate(8px,11px) scale(.93)}65%{transform:translate(8px,11px) scale(.93);animation-timing-function:cubic-bezier(.18,.9,.4,1)}76%{transform:translate(0px,0px) scale(1.02)}80%,100%{transform:translate(0px,0px) scale(1)}}@keyframes nt-dof{0%,76%,100%{filter:blur(0px)}6%{filter:blur(0px);animation-timing-function:cubic-bezier(.6,0,.4,1)}8%,65%{filter:blur(1.8px)}}@keyframes nt-fringe{0%,6%,76%,100%{opacity:0}8%,65%{opacity:1}}@keyframes nt-lock{0%,74%,79%,100%{opacity:0}76%{opacity:.9}}@keyframes nt-pglow{0%,100%{opacity:.4}65%{opacity:.4;animation-timing-function:cubic-bezier(.1,1,.4,1)}76%{opacity:1}82%{opacity:.45}88%{opacity:.4}}@keyframes nt-cw{to{transform:rotate(360deg)}}@keyframes nt-ccw{to{transform:rotate(-360deg)}}@keyframes nt-tw{0%,100%{opacity:.55}50%{opacity:.12}}.ntg{transform-origin:100px 100px;transform-box:fill-box;animation:nt-gaze 12s linear infinite}.ntig{transform-origin:100px 100px;transform-box:fill-box}.ntd{animation:nt-dof 12s linear infinite}.ntdiap{transform-origin:100px 100px;animation:nt-ccw 18s linear infinite}.nto1{transform-origin:100px 100px;animation:nt-cw 28s linear infinite}.nto2{transform-origin:100px 100px;animation:nt-ccw 18s linear infinite}.ntfV{animation:nt-fringe 12s linear infinite;opacity:0}.ntfC{animation:nt-fringe 12s linear infinite;opacity:0}.ntlk{animation:nt-lock 12s linear infinite;opacity:0}.ntpg{animation:nt-pglow 12s linear infinite;opacity:.4}</style><radialGradient id="NTbg" cx="42%" cy="38%" r="72%"><stop offset="0%" stop-color="#110e24"/><stop offset="55%" stop-color="#09091a"/><stop offset="100%" stop-color="#06060d"/></radialGradient><radialGradient id="NTir" cx="44%" cy="42%" r="62%"><stop offset="0%" stop-color="#d8b4fe"/><stop offset="18%" stop-color="#a855f7"/><stop offset="42%" stop-color="#6d28d9"/><stop offset="70%" stop-color="#164e63"/><stop offset="100%" stop-color="#06060d"/></radialGradient><radialGradient id="NTiC" cx="68%" cy="60%" r="58%"><stop offset="0%" stop-color="#22d3ee" stop-opacity=".5"/><stop offset="50%" stop-color="#06b6d4" stop-opacity=".18"/><stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/></radialGradient><radialGradient id="NTlb" cx="50%" cy="50%" r="50%"><stop offset="72%" stop-color="#6d28d9" stop-opacity="0"/><stop offset="100%" stop-color="#7c3aed" stop-opacity=".55"/></radialGradient><radialGradient id="NTsh" cx="30%" cy="25%" r="60%"><stop offset="0%" stop-color="white" stop-opacity=".14"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient><radialGradient id="NTfl" cx="50%" cy="50%" r="50%"><stop offset="68%" stop-color="#a855f7" stop-opacity="0"/><stop offset="85%" stop-color="#c084fc" stop-opacity=".85"/><stop offset="100%" stop-color="#22d3ee" stop-opacity=".65"/></radialGradient><radialGradient id="NTfV" cx="50%" cy="36%" r="50%"><stop offset="74%" stop-color="#a855f7" stop-opacity="0"/><stop offset="87%" stop-color="#a855f7" stop-opacity=".6"/><stop offset="100%" stop-color="#a855f7" stop-opacity="0"/></radialGradient><radialGradient id="NTfC" cx="50%" cy="64%" r="50%"><stop offset="74%" stop-color="#22d3ee" stop-opacity="0"/><stop offset="87%" stop-color="#06b6d4" stop-opacity=".55"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/></radialGradient><radialGradient id="NThl" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7c3aed" stop-opacity=".22"/><stop offset="55%" stop-color="#06b6d4" stop-opacity=".06"/><stop offset="100%" stop-color="#06060d" stop-opacity="0"/></radialGradient><radialGradient id="NTpu" cx="38%" cy="35%" r="68%"><stop offset="0%" stop-color="#1c1035"/><stop offset="100%" stop-color="#06060d"/></radialGradient><filter id="NTfv" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="10"/></filter><filter id="NTfm" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="NTfs" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="NTfx" x="-12%" y="-12%" width="124%" height="124%"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><clipPath id="NTey"><path d="M18,100 C34,62 66,41 100,41 C134,41 166,62 182,100 C166,138 134,159 100,159 C66,159 34,138 18,100 Z"/></clipPath><clipPath id="NTc5"><circle cx="100" cy="100" r="50"/></clipPath><clipPath id="NTc2"><circle cx="100" cy="100" r="24"/></clipPath></defs><rect width="200" height="200" fill="url(#NTbg)" rx="38"/><ellipse cx="97" cy="102" rx="76" ry="52" fill="url(#NThl)" filter="url(#NTfv)"/><g class="nto1"><ellipse cx="100" cy="100" rx="88" ry="64" fill="none" stroke="#6d28d9" stroke-width=".5" stroke-dasharray="1.5 8" stroke-opacity=".2"/><polygon points="100,36 103,32 100,28 97,32" fill="#8b5cf6" opacity=".35"/><polygon points="100,164 103,168 100,172 97,168" fill="#6d28d9" opacity=".2"/><polygon points="188,100 192,97 188,94 184,97" fill="#06b6d4" opacity=".25"/><polygon points="12,100 8,97 12,94 16,97" fill="#8b5cf6" opacity=".3"/></g><g class="nto2"><ellipse cx="100" cy="100" rx="72" ry="52" fill="none" stroke="#06b6d4" stroke-width=".4" stroke-dasharray="1 12" stroke-opacity=".18"/></g><path d="M18,100 C34,62 66,41 100,41 C134,41 166,62 182,100 C166,138 134,159 100,159 C66,159 34,138 18,100 Z" fill="#07060f"/><g class="ntg"><g class="ntig"><circle cx="100" cy="100" r="49" fill="url(#NTir)" clip-path="url(#NTey)"/><circle cx="100" cy="100" r="49" fill="url(#NTiC)" clip-path="url(#NTey)"/><circle cx="100" cy="100" r="49" fill="url(#NTlb)" clip-path="url(#NTey)"/><g class="ntd"><g clip-path="url(#NTc5)" class="ntdiap"><g fill="none" stroke="#8b5cf6" stroke-width=".55" opacity=".28"><line x1="100" y1="51" x2="100" y2="149"/><line x1="100" y1="51" x2="100" y2="149" transform="rotate(30,100,100)"/><line x1="100" y1="51" x2="100" y2="149" transform="rotate(60,100,100)"/><line x1="100" y1="51" x2="100" y2="149" transform="rotate(90,100,100)"/><line x1="100" y1="51" x2="100" y2="149" transform="rotate(120,100,100)"/><line x1="100" y1="51" x2="100" y2="149" transform="rotate(150,100,100)"/></g><circle cx="100" cy="100" r="42" fill="none" stroke="#7c3aed" stroke-width=".5" opacity=".3"/><circle cx="100" cy="100" r="36" fill="none" stroke="#6d28d9" stroke-width=".4" opacity=".4"/><circle cx="100" cy="100" r="30" fill="none" stroke="#06b6d4" stroke-width=".35" opacity=".25"/><path d="M100,58 A42,42 0 0,1 136,121" fill="none" stroke="#a855f7" stroke-width=".4" opacity=".2"/><path d="M100,142 A42,42 0 0,1 64,79" fill="none" stroke="#0891b2" stroke-width=".4" opacity=".2"/></g><g clip-path="url(#NTey)" filter="url(#NTfx)"><circle cx="78" cy="78" r="1.4" fill="#e9d5ff" opacity=".7" style="animation:nt-tw 3.7s ease-in-out infinite .2s"/><circle cx="122" cy="76" r="1" fill="#22d3ee" opacity=".65" style="animation:nt-tw 4.1s ease-in-out infinite 1.1s"/><circle cx="70" cy="110" r=".9" fill="#a855f7" opacity=".6" style="animation:nt-tw 5s ease-in-out infinite .5s"/><circle cx="130" cy="118" r="1.1" fill="#06b6d4" opacity=".55" style="animation:nt-tw 3.3s ease-in-out infinite 1.8s"/><circle cx="88" cy="128" r=".8" fill="#c084fc" opacity=".5" style="animation:nt-tw 4.6s ease-in-out infinite .9s"/><circle cx="115" cy="84" r=".9" fill="#67e8f9" opacity=".5" style="animation:nt-tw 3.9s ease-in-out infinite 2.3s"/></g></g><circle cx="100" cy="100" r="49" fill="url(#NTfV)" clip-path="url(#NTey)" class="ntfV"/><circle cx="100" cy="100" r="49" fill="url(#NTfC)" clip-path="url(#NTey)" class="ntfC"/><ellipse cx="86" cy="78" rx="26" ry="14" fill="url(#NTsh)" transform="rotate(-18,86,78)" clip-path="url(#NTey)"/></g><circle cx="100" cy="100" r="23" fill="url(#NTpu)"/><circle cx="100" cy="100" r="23" fill="none" stroke="#8b5cf6" stroke-width="1.4" filter="url(#NTfs)" class="ntpg"/><g clip-path="url(#NTc2)" opacity=".38"><line x1="100" y1="80" x2="100" y2="120" stroke="#8b5cf6" stroke-width=".7"/><line x1="80" y1="100" x2="120" y2="100" stroke="#06b6d4" stroke-width=".7"/><circle cx="100" cy="100" r="9" fill="none" stroke="#7c3aed" stroke-width=".5"/><circle cx="100" cy="100" r="4.5" fill="none" stroke="#06b6d4" stroke-width=".4"/><line x1="100" y1="80" x2="100" y2="83" stroke="#c084fc" stroke-width="1.2"/><line x1="100" y1="117" x2="100" y2="120" stroke="#c084fc" stroke-width="1.2"/><line x1="80" y1="100" x2="83" y2="100" stroke="#22d3ee" stroke-width="1.2"/><line x1="117" y1="100" x2="120" y2="100" stroke="#22d3ee" stroke-width="1.2"/></g><circle cx="100" cy="100" fill="#04030b"><animate attributeName="r" values="11;11;11;11;11;11;11;15;11;11;11" keyTimes="0;.06;.08;.65;.65;.74;.76;.77;.82;.9;1" calcMode="spline" keySplines=".4 0 .6 1;.4 0 .6 1;.4 0 .6 1;.4 0 .6 1;.4 0 .6 1;.18 .9 .4 1;.18 .9 .4 1;.4 0 .6 1;.4 0 .6 1;.4 0 .6 1" dur="12s" repeatCount="indefinite"/></circle><circle cx="93" cy="93" r="3.5" fill="white" opacity=".16" filter="url(#NTfs)"/><circle cx="93" cy="93" r="1.8" fill="white" opacity=".55"/><circle cx="108" cy="107" r="1.2" fill="#22d3ee" opacity=".3"/></g><circle cx="100" cy="100" r="49" fill="url(#NTfl)" clip-path="url(#NTey)" filter="url(#NTfm)" class="ntlk"/><path d="M18,100 C34,138 66,159 100,159 C134,159 166,138 182,100" fill="none" stroke="#1e1e35" stroke-width="1.4" stroke-linecap="round"/><path d="M18,100 C34,62 66,41 100,41 C134,41 166,62 182,100" fill="none" stroke="#6d28d9" stroke-width="1.4" stroke-linecap="round" filter="url(#NTfs)" opacity=".85"/><path d="M18,100 C26,80 36,65 52,54" fill="none" stroke="#06b6d4" stroke-width=".9" stroke-linecap="round" opacity=".4" filter="url(#NTfx)"/><path d="M182,100 C174,80 164,65 148,54" fill="none" stroke="#06b6d4" stroke-width=".9" stroke-linecap="round" opacity=".35" filter="url(#NTfx)"/><g filter="url(#NTfx)" opacity=".65"><line x1="18" y1="100" x2="6" y2="95" stroke="#8b5cf6" stroke-width=".9"/><line x1="18" y1="100" x2="5" y2="101" stroke="#7c3aed" stroke-width=".7"/><line x1="18" y1="100" x2="8" y2="109" stroke="#6d28d9" stroke-width=".6"/><line x1="18" y1="100" x2="9" y2="90" stroke="#a855f7" stroke-width=".5"/></g><path d="M16,42 L16,24 L34,24" fill="none" stroke="#2a2a48" stroke-width="1" opacity=".6"/><path d="M184,42 L184,24 L166,24" fill="none" stroke="#1e1e35" stroke-width="1" opacity=".3"/><path d="M16,158 L16,176 L34,176" fill="none" stroke="#2a2a48" stroke-width="1" opacity=".5"/><path d="M184,158 L184,176 L166,176" fill="none" stroke="#1e1e35" stroke-width="1" opacity=".25"/></svg></div>
+<div style="display:flex;flex-direction:column;gap:6px;line-height:1">
+<span class="rbs-wm-shadow">Shadow</span>
+<span class="rbs-wm-explorer">Explorer</span>
+</div></div>
+        <div class="rb-tagline-row">Secure &nbsp;&nbsp; Private &nbsp;&nbsp; Zero-Log</div>
+        <div class="rb-badges-row" id="rbsBadgesRow">
+          <span class="rb-sbadge rb-sbadge-green" id="rbsNetBadge"><span class="rb-sdot rb-sdot-green"></span><span id="rbsNetTxt" data-fr>Tor actif</span></span>
+          <span class="rb-sbadge rb-sbadge-cyan" id="rbsSecBadgeNT"><span class="rb-sdot rb-sdot-cyan"></span><span id="rbsSecTxtNT">NORMAL</span></span>
+          <span class="rb-sbadge rb-sbadge-purple"><span class="rb-sdot rb-sdot-purple"></span>0 <span data-fr>traqueurs</span></span>
         </div>
-      </div>
-      <div class="sim-nt-tagline">PRIVÉ · ANONYME · SÉCURISÉ</div>
-      <div class="sim-nt-badges">
-        <span class="sim-badge green"><span class="sim-badge-dot g"></span>TOR ACTIF</span>
-        <span class="sim-badge cyan"><span class="sim-badge-dot c"></span>PUBS BLOQUÉES</span>
-        <span class="sim-badge purple"><span class="sim-badge-dot p"></span>FINGERPRINT MASQUÉ</span>
-      </div>
-      <div class="sim-nt-search">
-        <div class="sim-nt-search-inner" onclick="simShowToast('🔍 Recherche désactivée dans la démo')">
-          <svg style="width:14px;height:14px;stroke:rgba(255,255,255,.2);fill:none;flex-shrink:0;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <span class="sim-nt-search-ph" data-fr>Recherche DuckDuckGo via Tor…</span>
-          <span class="sim-nt-search-ph" data-en>DuckDuckGo search via Tor…</span>
-          <button class="sim-nt-search-go"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></button>
+        <div class="rb-search">
+          <div class="rb-search-inner" onclick="rbsToast('🔒 Recherche désactivée dans la démo')" style="cursor:pointer">
+            <span class="rb-search-ph" data-fr>Rechercher ou entrer une URL…</span>
+            <span class="rb-search-ph" data-en>Search or enter a URL…</span>
+            <button class="rb-search-go" onclick="event.stopPropagation();rbsToast('🔒 Recherche désactivée dans la démo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
         </div>
-      </div>
-      <div class="sim-nt-shortcuts">
-        <span class="sim-kbs"><kbd>Ctrl+T</kbd> <span data-fr>Nouvel onglet</span><span data-en>New tab</span></span>
-        <span class="sim-kbs"><kbd>Ctrl+W</kbd> <span data-fr>Fermer</span><span data-en>Close</span></span>
-        <span class="sim-kbs"><kbd>Alt+S</kbd> Sidebar</span>
-        <span class="sim-kbs"><kbd>Ctrl+Shift+X</kbd> Panic</span>
+        <div class="rb-kbshorts">
+          <span class="rb-kbs"><kbd>Ctrl T</kbd> <span data-fr>Nouvel onglet</span><span data-en>New tab</span></span>
+          <span class="rb-kbs"><kbd>Ctrl W</kbd> <span data-fr>Fermer</span><span data-en>Close</span></span>
+          <span class="rb-kbs"><kbd>Alt S</kbd> Monitoring</span>
+          <span class="rb-kbs"><kbd>Ctrl+Shift+X</kbd> Panic</span>
+        </div>
       </div>
     </div>
-    <!-- Vue page web simulée -->
-    <div class="sim-web-view" id="simWebView">
-      <div class="sim-web-topbar">
-        <div class="sim-web-logo" id="simWebLogo"></div>
-        <span id="simWebTitle" style="font-size:11px;color:rgba(255,255,255,.5);">Chargement…</span>
+    <!-- Web page simulée -->
+    <div class="rbs-webview" id="rbsWebView">
+      <div class="rbs-webview-bar">
+        <div class="rbs-webview-logo" id="rbsWvLogo"></div>
+        <span id="rbsWvTitle">Chargement…</span>
       </div>
-      <div class="sim-web-body">
-        <div class="sim-web-h1"></div>
-        <div class="sim-web-p" style="width:88%"></div>
-        <div class="sim-web-p" style="width:75%"></div>
-        <div class="sim-web-p" style="width:82%"></div>
+      <div class="rbs-webview-body">
+        <div class="rbs-wv-h1"></div>
+        <div class="rbs-wv-p" style="width:88%"></div>
+        <div class="rbs-wv-p" style="width:75%"></div>
+        <div class="rbs-wv-p" style="width:82%"></div>
         <div style="height:8px"></div>
-        <div class="sim-web-p" style="width:60%"></div>
-        <div class="sim-web-p" style="width:70%"></div>
-        <div class="sim-web-p" style="width:50%"></div>
+        <div class="rbs-wv-p" style="width:60%"></div>
+        <div class="rbs-wv-p" style="width:70%"></div>
+        <div class="rbs-wv-p" style="width:50%"></div>
       </div>
     </div>
-  </div><!-- /sim-content -->
-
-</div><!-- /sim-body -->
-
-<!-- Statusbar -->
-<div class="sim-statusbar">
-  <span id="simStatusUrl" style="color:#64748b;"></span>
-  <div class="sim-status-tor" id="simStatusTor"><div class="sim-status-tor-dot"></div><span>Tor actif</span></div>
-  <span class="sim-status-ver">SHADOW v3.1</span>
-</div>
+  </div>
+</div><!-- /rbs-body -->
 
 <!-- Toast -->
-<div class="sim-toast" id="simToast"></div>
+<div class="rbs-toast" id="rbsToast"></div>
 
 <!-- Modal Tor -->
-<div class="sim-modal-overlay" id="simTorModal" onclick="if(event.target===this)simCloseTorModal()">
-  <div class="sim-modal-box">
+<div class="rbs-modal" id="rbsTorModal" onclick="if(event.target===this)rbsTorModalClose()">
+  <div class="rbs-modal-box">
     <h3>⚠️ Désactiver Tor ?</h3>
     <p>Votre <strong style="color:#ef4444">adresse IP réelle sera exposée</strong> à tous les sites visités.</p>
-    <div class="sim-modal-actions">
-      <button class="sim-modal-btn" onclick="simCloseTorModal()">Annuler</button>
-      <button class="sim-modal-btn danger" onclick="simConfirmDisableTor()">Désactiver quand même</button>
+    <div class="rbs-modal-actions">
+      <button class="rbs-mbtn cancel" onclick="rbsTorModalClose()">Annuler</button>
+      <button class="rbs-mbtn danger" onclick="rbsTorDisableConfirm()">Désactiver quand même</button>
     </div>
   </div>
 </div>
 
-<!-- Panic -->
-<div class="sim-panic-overlay" id="simPanicOverlay">
-  <div class="sim-panic-icon">⚡</div>
-  <div class="sim-panic-text">MODE PANIC ACTIVÉ</div>
-  <div class="sim-panic-sub">SESSION EFFACÉE · FERMETURE…</div>
+<!-- Panic overlay -->
+<div class="rbs-panic" id="rbsPanicOverlay">
+  <div class="rbs-panic-ico">⚡</div>
+  <div class="rbs-panic-title">MODE PANIC ACTIVÉ</div>
+  <div class="rbs-panic-sub">SESSION EFFACÉE · FERMETURE…</div>
 </div>
 
-</div>
+</div><!-- /rbsRoot -->
 </div>
 </section> 
 <span class="wave" style="background:var(--bg1)"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,48 C360,0 1080,0 1440,48 L1440,48 L0,48 Z" fill="#05050f"/></svg></span> 
@@ -1623,54 +1600,282 @@ fetchGitHubStats();
 
 <script>
 (function(){
-var _simTorEnabled=true,_simSbPinned=false,_simSbOpen=false,_simTabCount=1,_simCircIdx=0;
-var _simCpuH=[3,4,3.5,5,4,3,4.2,3.8,5,4.2],_simRamH=[310,312,315,311,313,312,314,312,311,312],_simNetH=[0,0,0,0,0,0,0,0,0,0];
-var _simTotalRx=0,_simTotalReq=0;
-var _simFakeTabs=[
-  {id:'gh',label:'GitHub',url:'github.com/Cosmic-Driver/SHADOW-EXPLORER',proto:'https://',color:'#0d1117',logo:'#8b5cf6',blocked:2},
-  {id:'ddg',label:'DuckDuckGo',url:'duckduckgo.com',proto:'https://',color:'#12113a',logo:'#de5833',blocked:0},
-  {id:'wiki',label:'Wikipédia',url:'en.wikipedia.org/wiki/Privacy',proto:'https://',color:'#1a1a1a',logo:'#aaa',blocked:1}
+'use strict';
+var R=document.getElementById('rbsRoot');
+if(!R)return;
+function $i(id){return R.querySelector('#'+id);}
+
+/* ── État ── */
+var _torOn=true,_sbPinned=false,_sbHideT=null,_tabId=1,_circIdx=0,_toastT=null;
+var _hCpu=new Array(50).fill(0),_hRam=new Array(50).fill(0),_hNet=new Array(50).fill(0);
+var _nRx=0,_nReq=0,_nMax=1;
+var PAGES=[
+  {id:2,title:'GitHub — Shadow Explorer',url:'github.com/Cosmic-Driver/SHADOW-EXPLORER',logo:'#8b5cf6',blocked:2},
+  {id:3,title:'DuckDuckGo',url:'duckduckgo.com',logo:'#de5833',blocked:0},
+  {id:4,title:'Wikipédia — Privacy',url:'en.wikipedia.org/wiki/Privacy',logo:'#999',blocked:1},
 ];
-var _simCircuits=[
-  {guard:'🇩🇪 Frankfurt',middle:'🇳🇱 Amsterdam',exit:'🇸🇪 Stockholm'},
-  {guard:'🇫🇷 Paris',middle:'🇺🇸 New York',exit:'🇯🇵 Tokyo'},
-  {guard:'🇨🇭 Zurich',middle:'🇨🇦 Toronto',exit:'🇧🇷 São Paulo'},
-  {guard:'🇦🇹 Vienna',middle:'🇸🇬 Singapore',exit:'🇦🇺 Sydney'}
+var CIRCUITS=[
+  {g:'🇩🇪',gn:'Frankfurt',m:'🇳🇱',mn:'Amsterdam',e:'🇸🇪',en:'Stockholm'},
+  {g:'🇫🇷',gn:'Paris',    m:'🇺🇸',mn:'New York',  e:'🇯🇵',en:'Tokyo'},
+  {g:'🇨🇭',gn:'Zurich',   m:'🇨🇦',mn:'Toronto',   e:'🇧🇷',en:'São Paulo'},
+  {g:'🇦🇹',gn:'Vienna',   m:'🇸🇬',mn:'Singapore', e:'🇦🇺',en:'Sydney'},
 ];
-function $s(id){return document.getElementById(id);}
-var _simToastT=null;
-window.simShowToast=function(msg){var el=$s('simToast');el.textContent=msg;el.classList.add('show');clearTimeout(_simToastT);_simToastT=setTimeout(function(){el.classList.remove('show');},2600);};
-window.simToggleSidebar=function(){_simSbOpen=!_simSbOpen;var sb=$s('simSidebar'),btn=$s('simSbBtn');sb.classList.toggle('open',_simSbOpen);btn.classList.toggle('active',_simSbOpen);};
-window.simTogglePin=function(){_simSbPinned=!_simSbPinned;var pin=$s('simSbPin');pin.textContent=_simSbPinned?'DÉTACHER':'ÉPINGLER';pin.classList.toggle('pinned',_simSbPinned);$s('simSbBtn').classList.toggle('active',_simSbPinned);if(!_simSbOpen){_simSbOpen=true;$s('simSidebar').classList.add('open');}};
-window.simSwitchSbPanel=function(name,el){document.querySelectorAll('#simRoot .sim-sb-tab').forEach(function(t){t.classList.remove('active');});document.querySelectorAll('#simRoot .sim-sb-panel').forEach(function(p){p.classList.remove('active');});el.classList.add('active');$s('simSbp-'+name).classList.add('active');};
-function simShowNewtab(){$s('simNewtab').style.display='flex';$s('simWebView').classList.remove('active');$s('simProto').textContent='shadow://';$s('simUrlText').textContent='newtab';$s('simSecDot').style.background='#10b981';$s('simSecLabel').textContent='NORMAL';$s('simStatusUrl').textContent='';$s('simBlockedCount').textContent='0';$s('simVBlocked').textContent='0';$s('simNavBack').classList.add('dim');$s('simNavFwd').classList.add('dim');}
-function simShowWebView(data){$s('simNewtab').style.display='none';$s('simWebView').classList.add('active');$s('simProto').textContent=data.proto;$s('simUrlText').textContent=data.url;$s('simWebLogo').style.background=data.logo;$s('simWebTitle').textContent=data.label;$s('simStatusUrl').textContent='Connexion via Tor…';$s('simNavBack').classList.remove('dim');$s('simNavFwd').classList.add('dim');$s('simBlockedCount').textContent=data.blocked;$s('simVBlocked').textContent=data.blocked;simFakeReload();setTimeout(function(){$s('simStatusUrl').textContent='Chiffrement Tor actif';setTimeout(function(){$s('simStatusUrl').textContent='';},1500);},1200);}
-window.simSwitchTab=function(id,el){document.querySelectorAll('#simRoot .sim-tab').forEach(function(t){t.classList.remove('active');});el.classList.add('active');var data=_simFakeTabs.find(function(t){return t.id===id;});if(id==='newtab'||!data)simShowNewtab();else simShowWebView(data);};
-window.simAddTab=function(){_simTabCount++;var data=_simFakeTabs[(_simTabCount-2)%_simFakeTabs.length];var bar=$s('simTabbar'),newBtn=bar.querySelector('.sim-new-tab');var tab=document.createElement('div');tab.className='sim-tab';var html='<div class="sim-tab-fav" style="background:'+data.logo+'"></div><span>'+data.label+'</span><span class="sim-tab-close" onclick="event.stopPropagation();simCloseTab(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>';tab.innerHTML=html;tab.addEventListener('click',(function(d,t){return function(){document.querySelectorAll('#simRoot .sim-tab').forEach(function(x){x.classList.remove('active');});t.classList.add('active');simShowWebView(d);};})(data,tab));bar.insertBefore(tab,newBtn);document.querySelectorAll('#simRoot .sim-tab').forEach(function(t){t.classList.remove('active');});tab.classList.add('active');simShowWebView(data);simUpdateTabCount();};
-window.simCloseTab=function(btn){var tab=btn.closest('.sim-tab');var wasActive=tab.classList.contains('active');tab.remove();_simTabCount=Math.max(1,_simTabCount-1);simUpdateTabCount();if(wasActive){var tabs=document.querySelectorAll('#simRoot .sim-tab');if(tabs.length>0){tabs[tabs.length-1].classList.add('active');}simShowNewtab();}};
-function simUpdateTabCount(){var n=document.querySelectorAll('#simTabbar .sim-tab').length;$s('simVTabs').textContent=n;$s('simVPages').textContent=Math.max(0,n-1);}
-window.simFakeReload=function(){var b=$s('simLoadBar');b.className='sim-load-bar';void b.offsetWidth;b.className='sim-load-bar loading';setTimeout(function(){b.className='sim-load-bar';},2300);};
-window.simTorBadgeClick=function(){if(_simTorEnabled)$s('simTorModal').classList.add('show');else simEnableTor();};
-window.simCloseTorModal=function(){$s('simTorModal').classList.remove('show');simShowToast('↩ Tor maintenu actif');};
-window.simConfirmDisableTor=function(){$s('simTorModal').classList.remove('show');simDisableTor();};
-function simEnableTor(){_simTorEnabled=true;var b=$s('simTorBadge');b.className='sim-tor-badge on';$s('simTorLabel').textContent='TOR ON';$s('simTorDot').style.background='#22c55e';$s('simTorDot').style.boxShadow='0 0 8px #22c55e';$s('simStatusTor').style.display='flex';$s('simSbTorT').className='sim-toggle on green';simShowToast('🧅 Tor réactivé');}
-function simDisableTor(){_simTorEnabled=false;var b=$s('simTorBadge');b.className='sim-tor-badge off';$s('simTorLabel').textContent='TOR OFF';$s('simTorDot').style.background='#ef4444';$s('simTorDot').style.boxShadow='0 0 8px #ef4444';$s('simStatusTor').style.display='none';$s('simSbTorT').className='sim-toggle off';simShowToast('⚠️ Tor désactivé — IP exposée !');}
-window.simToggleTor=function(){if(_simTorEnabled)$s('simTorModal').classList.add('show');else simEnableTor();};
-window.simToggleFilter=function(type,el){var on=el.classList.contains('on');if(on){el.classList.remove('on');el.classList.add('off');}else{el.classList.add('on');el.classList.remove('off');}var msgs={ads:on?'🛡 Blocage pub désactivé':'🛡 Blocage pub actif',trk:on?'👁 Traqueurs autorisés':'👁 Traqueurs bloqués',js:on?'⚡ JavaScript désactivé':'⚡ JavaScript activé'};simShowToast(msgs[type]);};
-window.simSetSecLevel=function(level){document.querySelectorAll('#simRoot .sim-sb-level').forEach(function(el){el.classList.remove('active');});var opt=document.querySelector('#simRoot [data-l="'+level+'"]');if(opt)opt.classList.add('active');$s('simSlcN').textContent=level==='normal'?'✓':'';$s('simSlcH').textContent=level==='high'?'✓':'';$s('simSlcX').textContent=level==='max'?'✓':'';var dot=$s('simSecDot'),lbl=$s('simSecLabel');if(level==='normal'){dot.style.background='#10b981';lbl.textContent='NORMAL';}if(level==='high'){dot.style.background='#f59e0b';lbl.textContent='ÉLEVÉ';}if(level==='max'){dot.style.background='#ef4444';lbl.textContent='MAX';}var msgs={normal:'🟢 Niveau NORMAL actif',high:'🟡 Niveau ÉLEVÉ actif',max:'🔴 Niveau MAX actif — JS bloqué'};simShowToast(msgs[level]);};
-window.simNewCircuit=function(){if(!_simTorEnabled){simShowToast('⚠️ Activez Tor pour changer de circuit');return;}_simCircIdx=(_simCircIdx+1)%_simCircuits.length;var c=_simCircuits[_simCircIdx];$s('simCGuard').textContent=c.guard;$s('simCMiddle').textContent=c.middle;$s('simCExit').textContent=c.exit;$s('simCircuitLabel').textContent='↻ Nouveau circuit actif';simShowToast('🔄 Nouveau circuit Tor établi');setTimeout(function(){$s('simCircuitLabel').textContent='Circuit actif';},2000);simFakeReload();};
-window.simChangeUA=function(sel){simShowToast('🎭 User-Agent : '+sel.options[sel.selectedIndex].text.replace(/^.\s/,''));};
-window.simToggleGx=function(type){if(type==='net'){var s=$s('simGxNetSliders');if(s)s.classList.toggle('open');}};
-window.simToggleGxSwitch=function(type,el){var on=el.classList.contains('on');if(on){el.classList.remove('on');el.classList.add('off');if(type==='net'){$s('simGxNetVal').textContent='Illimitée';simShowToast('🌐 Limite bande passante désactivée');}if(type==='bg'){$s('simGxBgVal').textContent='Actifs';simShowToast('💤 Onglets BG actifs');}}else{el.classList.add('on');el.classList.remove('off');if(type==='net'){$s('simGxNetVal').textContent='Limité';simShowToast('🌐 Limite bande passante activée');}if(type==='bg'){$s('simGxBgVal').textContent='En pause';simShowToast('💤 Onglets BG mis en pause');}}};
-window.simGxNetInput=function(val){var steps=[0,64,128,256,512,1024,2048,4096];var idx=Math.round((val/100)*(steps.length-1));var kbs=steps[Math.max(0,Math.min(idx,steps.length-1))];var d=kbs===0?'∞':(kbs>=1024?(kbs/1024).toFixed(0)+' MB/s':kbs+' KB/s');$s('simGxNetOut').textContent=d;$s('simGxNetVal').textContent=kbs===0?'Illimitée':d;};
-window.simTriggerPanic=function(){var ov=$s('simPanicOverlay');ov.classList.add('show');setTimeout(function(){ov.classList.remove('show');simShowToast('↩ Simulation réinitialisée');simShowNewtab();document.querySelectorAll('#simTabbar .sim-tab:not(#simTab-newtab)').forEach(function(t){t.remove();});_simTabCount=1;simUpdateTabCount();if(!_simTorEnabled)simEnableTor();},2000);};
-function simRnd(a,b){return a+Math.random()*(b-a);}
-function simDrawSpark(polyId,lineId,data,max){var W=200,H=28,n=data.length;var pts=data.map(function(v,i){return((i/(n-1))*W)+','+(H-(v/max)*H*0.85-2);}).join(' ');var poly=$s(polyId),line=$s(lineId);if(!poly||!line)return;var lx=parseFloat(pts.split(' ').slice(-1)[0].split(',')[0]);poly.setAttribute('points','0,'+H+' '+pts+' '+lx+','+H);line.setAttribute('points',pts);}
-function simTickMetrics(){var n=document.querySelectorAll('#simTabbar .sim-tab').length;var cpu=Math.max(0.5,simRnd(2,10)*n);cpu=Math.round(cpu*10)/10;_simCpuH.push(cpu);if(_simCpuH.length>40)_simCpuH.shift();$s('simVCpu').textContent=cpu.toFixed(1);$s('simBCpu').style.width=Math.min(100,cpu*4)+'%';$s('simVCpuB').textContent=(cpu*.28).toFixed(1)+'%';$s('simVCpuR').textContent=(cpu*.68).toFixed(1)+'%';$s('simVProcs').textContent=(n+3);simDrawSpark('simSpCpuPoly','simSpCpuLine',_simCpuH,40);var ram=Math.round(280+n*35+simRnd(-8,8));_simRamH.push(ram);if(_simRamH.length>40)_simRamH.shift();$s('simVRam').textContent=ram;$s('simBRam').style.width=(ram/16000*100)+'%';$s('simVRamFree').textContent=((16000-ram)/1024).toFixed(1)+' GB';$s('simVRamEl').textContent=Math.round(ram*.47)+' MB';simDrawSpark('simSpRamPoly','simSpRamLine',_simRamH,600);var net=(n>1&&_simTorEnabled)?Math.round(simRnd(5,80)):0;if(net>0){_simTotalRx+=net;_simTotalReq+=Math.floor(simRnd(0,3));}_simNetH.push(net);if(_simNetH.length>40)_simNetH.shift();$s('simVNet').textContent=net;$s('simBNet').style.width=(net/200*100)+'%';$s('simVRx').textContent=_simTotalRx>1024?(_simTotalRx/1024).toFixed(1)+' MB':_simTotalRx+' KB';$s('simVReq').textContent=_simTotalReq;simDrawSpark('simSpNetPoly','simSpNetLine',_simNetH,200);}
-setInterval(simTickMetrics,1400);simTickMetrics();
-// Hover bord gauche pour ouvrir la sidebar
-var simContentEl=document.getElementById('simContent');if(simContentEl){simContentEl.addEventListener('mousemove',function(e){var rect=document.getElementById('simRoot').getBoundingClientRect();if(!_simSbPinned&&!_simSbOpen&&(e.clientX-rect.left)<12){_simSbOpen=true;document.getElementById('simSidebar').classList.add('open');document.getElementById('simSbBtn').classList.add('active');}});simContentEl.addEventListener('mouseleave',function(){if(!_simSbPinned&&_simSbOpen){_simSbOpen=false;document.getElementById('simSidebar').classList.remove('open');document.getElementById('simSbBtn').classList.remove('active');}});}
-var simSbEl=document.getElementById('simSidebar');if(simSbEl)simSbEl.addEventListener('mouseleave',function(){if(!_simSbPinned&&_simSbOpen){_simSbOpen=false;document.getElementById('simSidebar').classList.remove('open');document.getElementById('simSbBtn').classList.remove('active');}});
+var _pageIdx=0;
+
+/* ── Toast ── */
+window.rbsToast=function(msg){var el=$i('rbsToast');el.textContent=msg;el.classList.add('show');clearTimeout(_toastT);_toastT=setTimeout(function(){el.classList.remove('show');},2600);};
+
+/* ── Sidebar : mouseenter/mouseleave exact renderer.js ── */
+var _sb=$i('rbsSidebar'),_tr=$i('rbsTrigger'),_sbPin=$i('rbsSbPin'),_sbBtn=$i('rbsSbBtn');
+function sbShow(){clearTimeout(_sbHideT);if(_sb)_sb.classList.add('open');}
+function sbHide(ms){if(_sbPinned)return;clearTimeout(_sbHideT);_sbHideT=setTimeout(function(){if(_sb)_sb.classList.remove('open');},ms===undefined?180:ms);}
+if(_tr){_tr.addEventListener('mouseenter',function(){sbShow();});_tr.addEventListener('mouseleave',function(){sbHide();});}
+if(_sb){_sb.addEventListener('mouseenter',function(){sbShow();});_sb.addEventListener('mouseleave',function(){sbHide(200);});}
+window.rbsTogglePin=function(){
+  _sbPinned=!_sbPinned;
+  if(_sbPin){_sbPin.textContent=_sbPinned?'DÉTACHER':'ÉPINGLER';_sbPin.classList.toggle('on',_sbPinned);}
+  if(_sbBtn)_sbBtn.classList.toggle('on',_sbPinned);
+  if(_sbPinned)sbShow();else sbHide(0);
+};
+if(_sbBtn)_sbBtn.addEventListener('click',function(){window.rbsTogglePin();});
+
+/* ── Panels ── */
+window.rbsSwitchPanel=function(name,el){
+  R.querySelectorAll('.rbs-sb-tab').forEach(function(t){t.classList.remove('on');});
+  R.querySelectorAll('.rbs-sb-panel').forEach(function(p){p.classList.remove('on');});
+  el.classList.add('on');
+  var panel=$i('rbsPanel'+name.charAt(0).toUpperCase()+name.slice(1));
+  if(panel)panel.classList.add('on');
+};
+
+/* ── Newtab badges ── */
+function updateNetBadge(){
+  var el=$i('rbsNetBadge'),tx=$i('rbsNetTxt');if(!el)return;
+  if(_torOn){el.className='rb-sbadge rb-sbadge-green';if(tx)tx.textContent='Tor actif';}
+  else{el.className='rb-sbadge rb-sbadge-purple';if(tx)tx.textContent='⚠ Tor désactivé';}
+}
+function updateSecBadgeNT(lvl){
+  var el=$i('rbsSecBadgeNT'),tx=$i('rbsSecTxtNT');if(!el)return;
+  var cls={n:'rb-sbadge-cyan',h:'rb-sbadge-green',m:'rb-sbadge-purple'};
+  var lbl={n:'NORMAL',h:'ÉLEVÉ',m:'MAX'};
+  el.className='rb-sbadge '+(cls[lvl]||'rb-sbadge-cyan');
+  if(tx)tx.textContent=lbl[lvl]||'NORMAL';
+}
+
+/* ── Onglets ── */
+function showNewtab(){
+  $i('rbsNewtab').style.zIndex='1';
+  var wv=$i('rbsWebView');wv.classList.remove('show');wv.style.zIndex='0';
+  var urlEl=$i('rbsUrlText');if(urlEl)urlEl.textContent='shadow://newtab';
+  var secD=$i('rbsSecDot');if(secD)secD.style.background='#10b981';
+  var secL=$i('rbsSecLabel');if(secL)secL.textContent='NORMAL';
+  var back=$i('rbsNavBack');if(back)back.className='rb-nav-btn rb-nav-btn-dim';
+  updateNetBadge();
+}
+function showWebView(page){
+  $i('rbsNewtab').style.zIndex='0';
+  var wv=$i('rbsWebView');wv.classList.add('show');wv.style.zIndex='1';
+  var logo=$i('rbsWvLogo');if(logo)logo.style.background=page.logo;
+  var title=$i('rbsWvTitle');if(title)title.textContent=page.title;
+  var urlEl=$i('rbsUrlText');if(urlEl)urlEl.textContent=page.url;
+  var secD=$i('rbsSecDot');if(secD)secD.style.background='#10b981';
+  var secL=$i('rbsSecLabel');if(secL)secL.textContent='NORMAL';
+  var back=$i('rbsNavBack');if(back)back.className='rb-nav-btn';
+  rbsLoadBar();
+  setTimeout(function(){rbsToast('🔒 Connexion Tor établie — '+page.blocked+' requêtes bloquées');},900);
+}
+window.rbsAddTab=function(){
+  var page=PAGES[_pageIdx%PAGES.length];_pageIdx++;_tabId++;
+  var bar=$i('rbsTabbar'),newBtn=bar.querySelector('.rb-new-tab');
+  var tab=document.createElement('div');tab.className='rb-tab';tab.id='rbsTab'+_tabId;
+  var fav=document.createElement('div');fav.className='rb-tab-favicon';fav.style.background=page.logo;tab.appendChild(fav);
+  var sp=document.createElement('span');sp.textContent=page.title;tab.appendChild(sp);
+  var cls=document.createElement('button');cls.className='rbs-tab-close-btn';cls.textContent='✕';
+  cls.addEventListener('click',function(e){e.stopPropagation();rbsCloseTab(_tabId);});tab.appendChild(cls);
+  var tid=_tabId;
+  tab.addEventListener('click',function(){rbsActivateTab(tid,tab,page);});
+  bar.insertBefore(tab,newBtn);
+  rbsActivateTab(tid,tab,page);
+  updateTabCount();
+};
+window.rbsCloseTab=function(id){
+  var tab=R.querySelector('#rbsTab'+id);if(!tab)return;
+  tab.style.maxWidth='0';tab.style.padding='0';tab.style.opacity='0';tab.style.overflow='hidden';
+  setTimeout(function(){tab.remove();updateTabCount();},220);
+  showNewtab();
+  var t1=$i('rbsTab1');if(t1){t1.classList.remove('rb-tab-active');t1.classList.add('rb-tab-active');}
+};
+function rbsActivateTab(id,tabEl,page){
+  R.querySelectorAll('#rbsTabbar .rb-tab').forEach(function(t){t.classList.remove('rb-tab-active');});
+  tabEl.classList.add('rb-tab-active');
+  showWebView(page);
+}
+function updateTabCount(){
+  var n=R.querySelectorAll('#rbsTabbar .rb-tab').length;
+  var vt=$i('rbsVTabs');if(vt)vt.textContent=n;
+  var vp=$i('rbsVPages');if(vp)vp.textContent=Math.max(0,n-1);
+}
+// Activer tab1
+var _t1=$i('rbsTab1');
+if(_t1)_t1.addEventListener('click',function(){
+  R.querySelectorAll('#rbsTabbar .rb-tab').forEach(function(t){t.classList.remove('rb-tab-active');});
+  _t1.classList.add('rb-tab-active');showNewtab();
+});
+
+/* ── Load bar ── */
+function rbsLoadBar(){
+  var b=$i('rbsLoadBar');if(!b)return;
+  b.style.transition='none';b.style.transform='scaleX(0)';b.style.opacity='1';
+  void b.offsetWidth;
+  b.style.transition='transform 2s ease-out';b.style.transform='scaleX(1)';
+  setTimeout(function(){b.style.opacity='0';b.style.transform='scaleX(0)';b.style.transition='opacity .3s';},2100);
+}
+window.rbsReload=function(){if($i('rbsWebView').classList.contains('show'))rbsLoadBar();rbsToast('↺ Rechargement…');};
+
+/* ── TOR ── */
+window.rbsTorClick=function(){if(_torOn){$i('rbsTorModal').classList.add('show');}else{torEnable();}};
+window.rbsTorModalClose=function(){$i('rbsTorModal').classList.remove('show');rbsToast('↩ Tor maintenu actif');};
+window.rbsTorDisableConfirm=function(){$i('rbsTorModal').classList.remove('show');torDisable();};
+window.rbsTorSbToggle=function(){if(_torOn){$i('rbsTorModal').classList.add('show');}else{torEnable();}};
+function torEnable(){
+  _torOn=true;
+  var b=$i('rbsTorBadge');if(b){b.className='rb-tor-badge rbs-tor-on';}
+  $i('rbsTorLabel').textContent='TOR ON';$i('rbsTorDot').style.background='#22c55e';
+  var t=$i('rbsTorToggle');if(t)t.className='rbs-toggle green on';
+  rbsToast('🧅 Tor réactivé');updateNetBadge();
+}
+function torDisable(){
+  _torOn=false;
+  var b=$i('rbsTorBadge');if(b){b.className='rb-tor-badge rbs-tor-off';}
+  $i('rbsTorLabel').textContent='TOR OFF';$i('rbsTorDot').style.background='#ef4444';
+  var t=$i('rbsTorToggle');if(t)t.className='rbs-toggle green';
+  rbsToast('⚠️ Tor désactivé — IP exposée !');updateNetBadge();
+}
+
+/* ── Filtres ── */
+window.rbsFilterToggle=function(type,el){
+  var on=el.classList.contains('on');
+  el.classList.toggle('on',!on);
+  var m={ads:on?'🛡 Blocage pub désactivé':'🛡 Blocage pub actif',trk:on?'👁 Traqueurs autorisés':'👁 Traqueurs bloqués',js:on?'⚡ JavaScript désactivé':'⚡ JavaScript activé'};
+  rbsToast(m[type]);
+};
+
+/* ── Niveau sécurité ── */
+window.rbsSetLevel=function(lvl,el){
+  R.querySelectorAll('.rbs-level').forEach(function(e){e.classList.remove('on');});
+  el.classList.add('on');
+  var lc={n:['rbsLcN','rbsLcH','rbsLcM'],h:['rbsLcH','rbsLcN','rbsLcM'],m:['rbsLcM','rbsLcN','rbsLcH']};
+  R.querySelectorAll('.rbs-lcheck').forEach(function(c){c.textContent='';});
+  var chk=$i(lc[lvl][0]);if(chk)chk.textContent='✓';
+  var dot=$i('rbsSecDot'),lbl=$i('rbsSecLabel');
+  var colors={n:'#10b981',h:'#f59e0b',m:'#ef4444'};
+  var labels={n:'NORMAL',h:'ÉLEVÉ',m:'MAX'};
+  if(dot)dot.style.background=colors[lvl];if(lbl)lbl.textContent=labels[lvl];
+  updateSecBadgeNT(lvl);
+  var msgs={n:'🟢 Niveau NORMAL actif',h:'🟡 Niveau ÉLEVÉ actif',m:'🔴 Niveau MAX actif'};
+  rbsToast(msgs[lvl]);
+};
+
+/* ── Circuit Tor ── */
+window.rbsNewCircuit=function(){
+  if(!_torOn){rbsToast('⚠️ Activez Tor pour changer de circuit');return;}
+  _circIdx=(_circIdx+1)%CIRCUITS.length;
+  var c=CIRCUITS[_circIdx];
+  R.querySelector('#rbsCG').textContent=c.gn;R.querySelector('#rbsCM').textContent=c.mn;R.querySelector('#rbsCE').textContent=c.en;
+  var nodes=$i('rbsCircNodes');
+  if(nodes){
+    nodes.querySelector('.rbs-node.entry:nth-child(3) .rbs-node-flag').textContent=c.g;
+    nodes.querySelector('.rbs-node:nth-child(5) .rbs-node-flag').textContent=c.m;
+    nodes.querySelector('.rbs-node.exit .rbs-node-flag').textContent=c.e;
+  }
+  var lbl=$i('rbsCircLabel');if(lbl)lbl.textContent='↻ Nouveau circuit actif';
+  rbsToast('🔄 Nouveau circuit Tor établi');
+  setTimeout(function(){if(lbl)lbl.textContent='Circuit actif';},2000);
+  rbsLoadBar();
+};
+
+/* ── GX ── */
+window.rbsGxToggle=function(type,el){
+  var on=el.classList.contains('on');el.classList.toggle('on',!on);
+  if(type==='net'){$i('rbsGxNetV').textContent=on?'Illimitée':'Limité';rbsToast(on?'🌐 Limite désactivée':'🌐 Limite activée');}
+  if(type==='bg'){$i('rbsGxBgV').textContent=on?'Actifs':'En pause';rbsToast(on?'💤 Onglets BG actifs':'💤 Onglets BG mis en pause');}
+};
+window.rbsGxNetIn=function(val){
+  var s=[0,64,128,256,512,1024,2048,4096];var idx=Math.round((val/100)*(s.length-1));var kbs=s[idx];
+  var d=kbs===0?'∞':(kbs>=1024?(kbs/1024).toFixed(0)+' MB/s':kbs+' KB/s');
+  $i('rbsGxNetO').textContent=d;$i('rbsGxNetV').textContent=kbs===0?'Illimitée':d;
+};
+
+/* ── Panic ── */
+window.rbsPanic=function(){
+  var ov=$i('rbsPanicOverlay');ov.classList.add('show');
+  setTimeout(function(){
+    ov.classList.remove('show');
+    R.querySelectorAll('#rbsTabbar .rb-tab:not(#rbsTab1)').forEach(function(t){t.remove();});
+    _tabId=1;updateTabCount();showNewtab();
+    var t1=$i('rbsTab1');if(t1){R.querySelectorAll('#rbsTabbar .rb-tab').forEach(function(t){t.classList.remove('rb-tab-active');});t1.classList.add('rb-tab-active');}
+    if(!_torOn)torEnable();
+    rbsToast('↩ Simulation réinitialisée');
+  },2000);
+};
+
+/* ── Métriques ── */
+function rnd(a,b){return a+Math.random()*(b-a);}
+function spark(polyId,lineId,h,max){
+  var W=200,H=28,N=h.length;
+  var pts=h.map(function(v,i){return(i/(N-1))*W+','+(H-(v/max)*H*.85-1);}).join(' ');
+  var pl=R.querySelector('#'+polyId),ln=R.querySelector('#'+lineId);
+  if(pl)pl.setAttribute('points','0,'+H+' '+pts+' '+((N-1)/(N-1)*W)+','+H);
+  if(ln)ln.setAttribute('points',pts);
+}
+function tick(){
+  var n=R.querySelectorAll('#rbsTabbar .rb-tab').length;
+  // CPU
+  var cv=Math.max(.5,rnd(1.5,9)*n);cv=Math.round(cv*10)/10;
+  _hCpu.shift();_hCpu.push(cv);
+  var el=$i('rbsVCpu');if(el)el.textContent=cv.toFixed(1);
+  var bf=$i('rbsBCpu');if(bf)bf.style.width=Math.min(100,cv*4)+'%';
+  var cb=$i('rbsVCpuB');if(cb)cb.textContent=(cv*.28).toFixed(1)+'%';
+  var cr=$i('rbsVCpuR');if(cr)cr.textContent=(cv*.68).toFixed(1)+'%';
+  var pr=$i('rbsVProcs');if(pr)pr.textContent=n+3;
+  spark('rbsSpCpuP','rbsSpCpuL',_hCpu,40);
+  // RAM
+  var rv=Math.round(280+n*35+rnd(-8,8));
+  _hRam.shift();_hRam.push(rv);
+  var rm=$i('rbsVRam');if(rm)rm.textContent=rv;
+  var rb=$i('rbsBRam');if(rb)rb.style.width=(rv/16000*100)+'%';
+  var rf=$i('rbsVRamF');if(rf)rf.textContent=((16000-rv)/1024).toFixed(1)+' GB';
+  var re=$i('rbsVRamE');if(re)re.textContent=Math.round(rv*.47)+' MB';
+  spark('rbsSpRamP','rbsSpRamL',_hRam,600);
+  // Net
+  var nv=(n>1&&_torOn)?Math.round(rnd(5,100)):0;
+  if(nv>0){_nRx+=nv;_nReq+=Math.floor(rnd(0,3));}
+  if(nv>_nMax)_nMax=nv;
+  _hNet.shift();_hNet.push(nv);
+  var nm=$i('rbsVNet');if(nm)nm.textContent=nv;
+  var nu=$i('rbsVNetU');if(nu)nu.textContent=nv>1000?'MB/s':'KB/s';
+  var nb=$i('rbsBNet');if(nb)nb.style.width=(nv/Math.max(_nMax,50)*100)+'%';
+  var nr=$i('rbsVRx');if(nr)nr.textContent=_nRx>1024?(_nRx/1024).toFixed(1)+' MB':_nRx+' KB';
+  var nq=$i('rbsVReq');if(nq)nq.textContent=_nReq;
+  spark('rbsSpNetP','rbsSpNetL',_hNet,Math.max(_nMax,80));
+  // Tabs
+  var vt=$i('rbsVTabs');if(vt)vt.textContent=n;
+  var vp=$i('rbsVPages');if(vp)vp.textContent=Math.max(0,n-1);
+}
+setInterval(tick,1400);tick();
+updateNetBadge();updateSecBadgeNT('n');
+
+
+/* Fix event listeners pour les éléments avec apostrophes */
+var _uaSel = R.querySelector('#rbsUaSel');
+if(_uaSel) _uaSel.addEventListener('change', function(){
+  var txt = _uaSel.options[_uaSel.selectedIndex].text.replace(/^.\s/,'');
+  rbsToast('🎭 User-Agent : ' + txt);
+});
+var _histBtn = R.querySelector('#rbsBtnHistory');
+if(_histBtn) _histBtn.addEventListener('click', function(){
+  rbsToast("⏱ Aucun historique — Shadow Explorer n'enregistre rien");
+});
 })();
 </script>
 
